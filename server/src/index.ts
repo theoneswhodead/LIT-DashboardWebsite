@@ -1,8 +1,12 @@
 import express, { Express, Request, Response } from "express";
 import mongoose from "mongoose";
 import 'dotenv/config'
+import userRouter from './routes/user'
+
 
 const app: Express = express()
+
+app.use('/', userRouter)
 
 mongoose.connect(process.env.MONGO_URI)
     .then(()=> {
