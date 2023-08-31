@@ -1,12 +1,9 @@
 import express, { Router, Request, Response } from "express"
-import { userLogin } from '../Controllers/userController'
+import { userLogin, userSignup } from '../Controllers/userController'
 
 const router: Router = express.Router()
 
 router.post("/login", userLogin)
-
-router.post("/signup", (req: Request, res: Response) => {
-    res.send('signup')
-})
+router.post("/signup", userSignup)
 
 export default router;
