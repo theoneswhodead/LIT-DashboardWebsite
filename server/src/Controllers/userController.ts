@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import jwt from 'jsonwebtoken'
+import User from '../models/userModel'
 
 const createToken = (_id: object) => {
     return jwt.sign({_id}, process.env.SECRET, {expiresIn: '3d'})
@@ -20,10 +21,13 @@ export const userLogin = async (req: Request, res: Response) => {
 export const userSignup = async (req: Request, res: Response) => {
     const { username, email, password } = req.body;
 
-    console.log(username, email, password);
-
     try {
-        res.status(200).json({username, email})
+
+        const user = await User.signup(username, email, password)
+
+        const token = createToken(user._id)
+
+        res.status(200).json({username, email, token})
     } catch (error) {
         res.status(400).json({error: error.message})
         
