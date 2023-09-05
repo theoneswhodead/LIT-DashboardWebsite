@@ -10,8 +10,10 @@ export const userLogin = async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
     try {
-        console.log(email, password)
-        res.status(200).json({email, password})
+        const user = await User.login(email, password)
+
+        const token = createToken(user._id)
+        res.status(200).json(user)
 
     } catch (error) {
         res.status(400).json({error: error.message}) 
@@ -24,7 +26,6 @@ export const userSignup = async (req: Request, res: Response) => {
     try {
 
         const user = await User.signup(username, email, password)
-
         const token = createToken(user._id)
 
         res.status(200).json({username, email, token})

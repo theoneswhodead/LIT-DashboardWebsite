@@ -1,4 +1,4 @@
-import mongoose, { Model } from 'mongoose';
+import mongoose, { Model, Document } from 'mongoose';
 import validator from 'validator'
 import bcrypt from 'bcrypt'
 
@@ -16,7 +16,6 @@ const userSchema = new Schema({
     email: strReqUni,
     password: strReqUni
 })
-
 
 userSchema.statics.signup = async function(username: string, email: string, password: string) {
 
@@ -51,10 +50,32 @@ userSchema.statics.signup = async function(username: string, email: string, pass
     return user
 }
 
-interface UserSignup extends Model<any> {
-    signup(username: string, email: string, password: string): Promise<any>;
+userSchema.statics.login = async function(email: string, password: string){
+
+    if(!email || !password) {
+        throw Error('Wszystkie pola są wymagane!')
+    }
+
+    const user = await this.findOne({email})
+
+    if(!user) {
+        throw Error('Niepoprawne dane logowania')
+    }
+
+    const matchPassword = await bcrypt.compare(password, user.password)
+
+    if(!matchPassword) {
+        throw Error('Niepoprawne dane logowania')
+    }
+
+    return user
 }
 
-const User = mongoose.model<any, UserSignup>("user", userSchema);
+interface UserStatics extends Model<Document> {
+    signup(username: string, email: string, password: string): Promise<Document>;
+    login(email: string, password: string): Promise<Document>;
+}
+
+const User = mongoose.model<Document, UserStatics>("user", userSchema) as UserStatics;
 
 export default User;
