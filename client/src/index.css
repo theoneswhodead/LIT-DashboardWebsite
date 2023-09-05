@@ -3,3 +3,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.gradient__bg { 
+  background:radial-gradient(circle at 3% 5%, #af0000 -300%, #0a0a0a 55%);
+}
+
+
+.reflect {
+  -webkit-box-reflect: below 1px linear-gradient(
+      transparent, #0005);
+}
+
+.hover_animate {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+.hover_shadow:hover {
+  box-shadow: 0 0 5px #9e0000,
+              0 0 25px #9e0000,
+              0 0 75px #9e0000,
+              0 0 100px #9e0000;
+}
+
+.hover_animate:hover:before {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  right: 100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg,transparent, #9e0000);
+  animation: animate 1s linear infinite;
+}
+
+
+@keyframes animate {
+  0% {
+      right: -100%
+  }
+  50%,100% {
+      right: 100%;
+  }
+}
