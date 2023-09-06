@@ -21,7 +21,7 @@ const Navbar = () => {
             </div>
 
             <div className='flex items-center reflect text-[16px]'>
-                <NavLink to="/login" className="hover_animate">Zaloguj <span className='text-dark_red inline-block font-bold '>Się</span></NavLink>
+                <NavLink to="/signup" className="hover_animate">Zaloguj <span className='text-dark_red inline-block font-bold '>Się</span></NavLink>
             </div>
 
         </div>
@@ -36,7 +36,7 @@ const Navbar = () => {
                 <NavLink to="#what" className="hover:text-dark_red hover_animate tracking-wide">Co nowego</NavLink>
                 <NavLink to="#about" className="hover:text-dark_red hover_animate tracking-wide">O nas</NavLink>
                 <NavLink to="#history" className="hover:text-dark_red hover_animate tracking-wide">Historia</NavLink>
-                <NavLink to="/login" className="hover_animate">Zaloguj <span className='text-dark_red inline-block font-bold '>Się</span></NavLink>
+                <NavLink to="/signup" className="hover_animate">Zaloguj <span className='text-dark_red inline-block font-bold '>Się</span></NavLink>
             </div>
         }
         </div>
