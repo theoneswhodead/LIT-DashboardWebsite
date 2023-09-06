@@ -6,7 +6,7 @@ export default {
     extend: {
       colors: {
         dark_red: "#9e0000",
-        dark_opacity: "rgba(0, 0, 0, 0.04)",
+        dark_opacity: "rgba(0, 0, 0, 0.35)",
         almost_black: '#0a0a0a',
         light_red: "#f50000",
         white: "#ffffff",
@@ -24,7 +24,7 @@ export default {
     },
     screens: {
       xs: "480px",
-      ss: "620px",
+      ss: "580px",
       sm: "768px",
       md: "1060px",
       lg: "1440px",

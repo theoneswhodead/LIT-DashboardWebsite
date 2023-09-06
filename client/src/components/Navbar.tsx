@@ -32,15 +32,13 @@ const Navbar = () => {
         }
         {
             toggleMenu && 
-            <div className='text-white text-[16px] flex flex-col absolute  bg-dark_red inset-0 top-[89px] backdrop-blur-[40.7742px] left-1/3 gap-[33px] p-6 sm:hidden'>
-                <NavLink to="#what">Co nowego</NavLink>
-                <NavLink to="#about">O nas</NavLink>
-                <NavLink to="#history">Historia</NavLink>
-                <NavLink to="/login">Zaloguj się</NavLink>
+            <div className='text-white text-[16px] flex flex-col absolute bg-dark_opacity inset-0 top-[89px] backdrop-blur-[70px] left-1/3 gap-[33px] p-6 sm:hidden z-10'>
+                <NavLink to="#what" className="hover:text-dark_red hover_animate tracking-wide">Co nowego</NavLink>
+                <NavLink to="#about" className="hover:text-dark_red hover_animate tracking-wide">O nas</NavLink>
+                <NavLink to="#history" className="hover:text-dark_red hover_animate tracking-wide">Historia</NavLink>
+                <NavLink to="/login" className="hover_animate">Zaloguj <span className='text-dark_red inline-block font-bold '>Się</span></NavLink>
             </div>
-            //temp color
         }
-
         </div>
     </div>
   )
