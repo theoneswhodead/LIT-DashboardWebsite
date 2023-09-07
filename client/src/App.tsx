@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 
 import { RootLayout } from "./layouts";
-import { Home, Signup } from "./pages";
+import { Home, Signup, Login} from "./pages";
 
 const App = () => {
 
@@ -23,7 +23,7 @@ const App = () => {
         },
         {
           path: '/login',
-          element: 'login'
+          element: <Login />
         }
       ]
     }
