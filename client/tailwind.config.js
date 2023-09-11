@@ -12,6 +12,8 @@ export default {
         white: "#ffffff",
         footer: "#0f0f0f",
         ligt_blue: '#c4ffff',
+        blue: '#016fff',
+        gold: '#ffd51e'
       },
       fontFamily: {
         barlow_condensed: ["Barlow Condensed", "sans-serif"],

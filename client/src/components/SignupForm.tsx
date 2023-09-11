@@ -1,16 +1,18 @@
 import { useState, FormEvent } from 'react'
+import { useSignup } from '../hooks/useSignup'
 
 const SignupForm = () => {
 
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { signup, error, isLoading } = useSignup()
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+      e.preventDefault()
 
+      await signup(username, email, password)
 
-      console.log('Signup form',username, email)
   }
 
   return (
@@ -54,8 +56,8 @@ const SignupForm = () => {
                     placeholder='Wybierz silne hasło' 
                     className='mb-[24px] bg-transparent border border-white p-[16px] hover:border-dark_red text-white placeholder:text-dark_red'/>
 
-                    <button  type="submit"className='border hover:border-dark_red px-[48px] py-4 reflect text-center text-white'>Stwórz <span className='text-dark_red '>Konto</span></button> 
-
+                    <button disabled={isLoading}  type="submit"className='border hover:border-dark_red px-[48px] py-4 reflect text-center text-white'>Stwórz <span className='text-dark_red '>Konto</span></button> 
+                    {error && <div>{error}</div>}
             </form>
         </div>
         

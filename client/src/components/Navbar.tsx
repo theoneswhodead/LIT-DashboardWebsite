@@ -3,9 +3,20 @@ import { useState} from 'react'
 import { NavLink } from 'react-router-dom'
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 
+import { useLogout } from '../hooks/useLogout';
+import { useAuthContext } from '../hooks/useAuthContext';
+
 const Navbar = () => {
 
-    const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+  const { user } = useAuthContext()
+  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+  const { logout } = useLogout();
+
+    const handleClick = () => {
+        logout();
+    }
+
+
   return (
     <div className='flex justify-between p-6 sm:p-[40px] lg:px-[80px] '>
         <div className='w-[110px] lg:w-[210px] '>
@@ -20,8 +31,20 @@ const Navbar = () => {
                 <NavLink to="#history" className="hover:text-dark_red hover_animate tracking-wide">Historia</NavLink>
             </div>
 
-            <div className='flex items-center reflect text-[16px]'>
-                <NavLink to="/login" className="hover_animate">Zaloguj <span className='text-dark_red inline-block font-bold '>Się</span></NavLink>
+            <div className='flex items-center reflect text-[16px] gap-[33px]'>
+            {
+                        user ? (
+                            <div>
+                              <NavLink to="/dashboard" className='text-white'>{user.username}</NavLink> 
+
+                                <button className='text-white' onClick={handleClick}> Wyloguj się</button> 
+                            </div>
+                        )  : (
+                            <NavLink to="/login" className="hover_animate ">
+                                Zaloguj <span className='text-dark_red inline-block font-bold '>Się</span>
+                            </NavLink>
+                        ) 
+                     }
             </div>
 
         </div>

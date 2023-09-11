@@ -8,6 +8,10 @@
   background:radial-gradient(circle at 3% 5%, #af0000 -300%, #0a0a0a 55%);
 }
 
+.gradient__news { 
+  background:radial-gradient(circle at 100% 50%, #af0000 -300%, #0a0a0a 55%);
+}
+
 
 .reflect {
   -webkit-box-reflect: below 1px linear-gradient(
@@ -46,4 +50,12 @@
   50%,100% {
       right: 100%;
   }
+}
+
+.zoom {
+  transition: 0.5s all ease-in-out;
+}
+
+.zoom:hover {
+  transform: scale(1.5);
 }
