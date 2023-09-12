@@ -1,5 +1,5 @@
 import { Navbar } from '../components'
-import { Header, News, AboutUs } from '../containtes'
+import { Header, News, AboutUs, OldProjects } from '../containtes'
 
 const Home = () => {
   return (
@@ -11,6 +11,7 @@ const Home = () => {
       
       <News/>
       <AboutUs/>
+      <OldProjects />
 
     </div>
   )

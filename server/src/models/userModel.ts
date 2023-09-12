@@ -71,9 +71,50 @@ userSchema.statics.login = async function(email: string, password: string){
     return user
 }
 
+userSchema.statics.forgot = async function(email: string){
+
+    if(!email) {
+        throw Error('Pole Email jest wymagane!')
+    }
+
+    const user = await this.findOne({email})
+
+    if(!user) {
+        throw Error('Niepoprawne dane logowania')
+    }
+
+    return user
+}
+
+userSchema.statics.resetPassword = async function(id: string, username: string, email: string, password: string) {
+
+    if(!username || !email || !password) {
+        throw Error('Wszystkie pola są wymagane!')
+    }
+
+    if(!validator.isEmail(email)) {
+        throw Error('Podany adres E-mail nie jest poprawny!')
+    }
+
+    if(!validator.isStrongPassword(password)) {
+        throw Error('Hasło jest za słabe!')
+    }
+
+    const salt = await bcrypt.genSalt(10)
+    const hash = await bcrypt.hash(password, salt)
+
+    const user = await this.findByIdAndUpdate(id, { password: hash }, { new: true })
+
+    return user
+}
+
+
+
 interface UserStatics extends Model<Document> {
     signup(username: string, email: string, password: string): Promise<Document>;
     login(email: string, password: string): Promise<Document>;
+    forgot(email: string): Promise<Document>;
+    resetPassword(id: string, username: string, email: string, password: string): Promise<Document>;
 }
 
 const User = mongoose.model<Document, UserStatics>("user", userSchema) as UserStatics;

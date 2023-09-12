@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 import { RootLayout, DashboardLayout } from "./layouts";
-import { Home, Signup, Login, Dashboard} from "./pages";
+import { Home, Signup, Login, Forgot, ResetPassword, Dashboard} from "./pages";
 
 import { useAuthContext } from './hooks/useAuthContext'
 
@@ -32,6 +32,14 @@ const App = () => {
         {
           path: '/login',
           element: <Login />
+        },
+        {
+          path: '/forgot',
+          element: <Forgot />
+        },
+        {
+          path: 'reset-password/:id/:token',
+          element: <ResetPassword />
         }
       ]
     },

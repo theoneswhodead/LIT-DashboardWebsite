@@ -6,6 +6,7 @@ export default {
     extend: {
       colors: {
         dark_red: "#9e0000",
+        card_red: "#270000",
         dark_opacity: "rgba(0, 0, 0, 0.35)",
         almost_black: '#0a0a0a',
         light_red: "#f50000",
