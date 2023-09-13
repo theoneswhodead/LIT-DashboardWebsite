@@ -16,6 +16,23 @@ const userSchema = new Schema({
     email: strReqUni,
     password: strReqUni
 })
+export interface UserDoc extends mongoose.Document {
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+    required: true,
+    unique: true
+    }
+}
 
 userSchema.statics.signup = async function(username: string, email: string, password: string) {
 
@@ -110,13 +127,19 @@ userSchema.statics.resetPassword = async function(id: string, username: string, 
 
 
 
-interface UserStatics extends Model<Document> {
-    signup(username: string, email: string, password: string): Promise<Document>;
-    login(email: string, password: string): Promise<Document>;
-    forgot(email: string): Promise<Document>;
-    resetPassword(id: string, username: string, email: string, password: string): Promise<Document>;
-}
-
-const User = mongoose.model<Document, UserStatics>("user", userSchema) as UserStatics;
-
-export default User;
+interface UserStatics extends Model<UserDoc> {
+    signup(username: string, email: string, password: string): Promise<UserDoc>;
+    login(email: string, password: string): Promise<UserDoc>;
+    forgot(email: string): Promise<UserDoc>;
+    resetPassword(
+      id: string,
+      username: string,
+      email: string,
+      password: string
+    ): Promise<UserDoc>;
+  }
+  
+  // Tworzenie modelu użytkownika
+  const User = mongoose.model<UserDoc, UserStatics>('user', userSchema);
+  
+  export default User;

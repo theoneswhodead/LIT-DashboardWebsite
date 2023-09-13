@@ -1,17 +1,17 @@
 import { useState, FormEvent } from 'react'
-import { NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useLogin } from '../hooks/useLogin'
 
 const LoginForm = () => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const { login, error, isLoading } = useLogin()
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-
         await login(email, password)
+        
     }
   return (
     <div className='flex justify-center sm:mt-[80px] lg:mt-[120px] h-full'>
@@ -42,7 +42,7 @@ const LoginForm = () => {
 
                     <button disabled={isLoading}  type="submit"className='border hover:border-dark_red px-[48px] py-4 reflect text-center text-white'>Zaloguj <span className='text-dark_red '>Się</span></button>
 
-                    {error && <div>{error} </div>}
+                    {error && <div className='text-dark_red'>{error} </div>}
 
                     <NavLink to="/signup" className="text-white mt-[70px] hover:text-dark_red hover_animate ">Nie masz konta? <span className='text-dark_red'>Stwórz!</span></NavLink>
             </form>

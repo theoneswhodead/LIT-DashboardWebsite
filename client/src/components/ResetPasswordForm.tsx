@@ -1,5 +1,5 @@
 import { useState, FormEvent } from 'react'
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router';
 import { useResetPassword } from '../hooks/userResetPassword';
 
 const ResetPasswordForm = () => {
@@ -7,7 +7,8 @@ const ResetPasswordForm = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { id, token } = useParams<{ id?: string | undefined; token: string }>();
+    const { id, token } = useParams<{ id: string; token: string }>();
+
     const { resetPassword, isLoading, error } = useResetPassword();
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { useNavigate } from "react-router-dom";
 
 export const useLogin = () => {
     const [error, setError] = useState<string | null>(null)
     const [isLoading, setIsLoading] = useState<boolean>(false)
+    const navigate = useNavigate()
 
     const { dispatch } = useAuthContext();
 
@@ -28,6 +30,8 @@ export const useLogin = () => {
 
             dispatch({type: 'LOGIN', payload: json})
             setIsLoading(false)
+
+            navigate('/dashboard') 
         }
     }
     return {login, isLoading, error}

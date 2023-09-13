@@ -28,9 +28,13 @@ const AboutUs = () => {
 
         <div className='bg-card_red mt-[48px] p-6 sm:p-[58px] lg:p-[86px] text-white mb-[48px] lg:w-4/5 lg:h-[600px]'>
           <h3 className='font-barlow_condensed text-[24px] uppercase font-black leading-[32px]'>Zarząd</h3>
-          <p className='font-roboto text-[16px] leading-[26px] lg:w-[700px]'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa, blanditiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam alias at velit ullam sit. Doloribus ad delectus similique dolores voluptas! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, quaerat enim, non illum soluta quidem debitis voluptate, quisquam ducimus neque ut exercitationem dicta consectetur similique dolorum earum magnam corporis molestiae?</p>
-          <p className='font-roboto text-[16px] leading-[26px] lg:w-[700px]'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa, blanditiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam alias at velit ullam sit. Doloribus ad delectus similique dolores voluptas! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, quaerat enim, non illum soluta quidem debitis voluptate, quisquam ducimus neque ut exercitationem dicta consectetur similique dolorum earum magnam corporis molestiae?</p>
-          <p className='font-roboto text-[16px] leading-[26px] lg:w-[700px]'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa, blanditiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam alias at velit ullam sit. Doloribus ad delectus similique dolores voluptas! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, quaerat enim, non illum soluta quidem debitis voluptate, quisquam ducimus neque ut exercitationem dicta consectetur similique dolorum earum magnam corporis molestiae?</p>
+          <p className='font-roboto text-[16px] leading-[26px] lg:w-[700px] lg:mt-[24px]'>
+          Najwyżej w hierarchii administracji serwera jest Zarząd, który składa się z trzech osób. Każdy z zarządców posiada wieloletnie doświadczenie w prowadzeniu serwerów:
+          Discord,
+          SCP Secret Labolatory,
+          Minecraft,
+          Unturned.
+          Głównymi celami zarządców jest utrzymanie serwerów pod względem technicznym jak i finansowym, zbudowanie zgranej społeczności, nadzór nad administracją.</p>
         </div>
       </div>
       <div className='flex flex-col sm:flex-row lg:justify-center'>

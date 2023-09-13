@@ -1,31 +1,30 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const useResetPassword= () => {
     const [error, setError] = useState<string | null>(null)
     const [isLoading, setIsLoading] = useState<boolean>(false)
+    const navigate = useNavigate();
 
-    const resetPassword = async (id: string, token: string, username: string, email: string, password: string) => {
+    const resetPassword = async (id: string | undefined, token: string | undefined, username: string, email: string, password: string) => {
         setIsLoading(true)
         setError(null)
-        console.log('test1', id, username, email, password)
 
         const response = await fetch(`http://localhost:5000/reset-password/${id}/${token}`, {
            method: 'POST',
            headers: {'Content-Type': 'application/json'},
-           body: JSON.stringify({id, username, email, password}) 
+           body: JSON.stringify({id, token, username, email, password}) 
         })
         const json = await response.json()
 
         if(!response.ok) {
             setIsLoading(false)
             setError(json.error)
-            console.log('test4 errer',json.error, id, username, email, password)
         }
 
         if(response.ok) {
-            console.log('test', id, username, email, password)
-
             setIsLoading(false)
+            navigate('/login');
         }
     }
     return {resetPassword, isLoading, error}

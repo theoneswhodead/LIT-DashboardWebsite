@@ -6,15 +6,10 @@ import {
 
 import { RootLayout, DashboardLayout } from "./layouts";
 import { Home, Signup, Login, Forgot, ResetPassword, Dashboard} from "./pages";
-
 import { useAuthContext } from './hooks/useAuthContext'
 
-const ConditionalRoute = () => {
-  const { user } = useAuthContext()
-  return user ? <Dashboard /> : <Navigate to="/" />
-}
-
 const App = () => {
+  const { user } = useAuthContext()
 
   const router = createBrowserRouter([
     {
@@ -27,11 +22,11 @@ const App = () => {
         },
         {
           path: '/signup',
-          element: <Signup />
+          element: user ? <Navigate to="/" /> : <Signup />
         },
         {
           path: '/login',
-          element: <Login />
+          element: user ? <Navigate to="/" /> : <Login />
         },
         {
           path: '/forgot',
@@ -49,7 +44,7 @@ const App = () => {
       children: [
         {
           path: '/dashboard',
-          element: <ConditionalRoute />
+          element: user ? <Dashboard /> : <Navigate to="/" />
         }
       ]
     }
