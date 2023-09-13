@@ -26,6 +26,15 @@ dist-ssr
 /dist
 /dist/
 *.local
+/assets
+../../assets
+/assets/
+/grafiki
+/assets/grafiki
+./assets/grafiki
+../../assets/grafiki
+/avatar
+./avatar
 
 .vscode/*
 !.vscode/extensions.json
