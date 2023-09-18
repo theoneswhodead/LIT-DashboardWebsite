@@ -26,9 +26,9 @@ const AboutUs = () => {
       <div className='flex flex-col lg:flex-row  lg:relative'>
         <img src="../../assets/grafiki/173.png" alt="" className='lg:w-[500px] lg:h-[500px] lg:absolute lg:right-[50px] lg:bottom-1/2 lg:translate-y-1/2 '/>
 
-        <div className='bg-card_red mt-[48px] p-6 sm:p-[58px] lg:p-[86px] text-white mb-[48px] lg:w-4/5 lg:h-[600px]'>
+        <div className='gradient__about  mt-[48px] p-6 sm:p-[58px] lg:p-[86px] text-white mb-[48px] lg:w-4/5 lg:h-[600px]'>
           <h3 className='font-barlow_condensed text-[24px] uppercase font-black leading-[32px]'>Zarząd</h3>
-          <p className='font-roboto text-[16px] leading-[26px] lg:w-[700px] lg:mt-[24px]'>
+          <p className='font-roboto text-[16px] leading-[26px] lg:w-[700px] lg:mt-[24px] '>
           Najwyżej w hierarchii administracji serwera jest Zarząd, który składa się z trzech osób. Każdy z zarządców posiada wieloletnie doświadczenie w prowadzeniu serwerów:
           Discord,
           SCP Secret Labolatory,

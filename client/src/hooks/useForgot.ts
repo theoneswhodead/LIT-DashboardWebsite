@@ -1,32 +1,32 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const useForgot = () => {
-    const [error, setError] = useState<string | null>(null)
-    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [error, setError] = useState<string | null>(null); 
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const navigate = useNavigate();
 
     const forgot = async (email: string) => {
-        setIsLoading(true)
-        setError(null)
+        setIsLoading(true);
+        setError(null);
 
-        const response = await fetch('http://localhost:5000/forgot', {
-           method: 'POST',
-           headers: {'Content-Type': 'application/json'},
-           body: JSON.stringify({email}) 
-        })
-        const json = await response.json()
+        try {
+            const response = await axios.post('http://localhost:5000/forgot', { email }, {
+                headers: { 'Content-Type': 'application/json' }
+            });
 
-        console.log(response);
-        if(!response.ok) {
-            setIsLoading(false)
-            setError(json.error)
-        }
+            console.log(response);
 
-        if(response.ok) {
-            setIsLoading(false)
-            navigate('/login');
+            if (response.status === 200) {
+                setIsLoading(false);
+                navigate('/login');
+            }
+        } catch (error: any) { 
+            setIsLoading(false);
+            setError(error.response?.data.error || "Wystąpił błąd podczas wysyłania żądania.");
         }
     }
-    return {forgot, isLoading, error}
+
+    return { forgot, isLoading, error }
 }

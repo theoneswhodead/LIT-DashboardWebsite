@@ -1,31 +1,42 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-export const useResetPassword= () => {
-    const [error, setError] = useState<string | null>(null)
-    const [isLoading, setIsLoading] = useState<boolean>(false)
+export const useResetPassword = () => {
+    const [error, setError] = useState<string | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const navigate = useNavigate();
 
     const resetPassword = async (id: string | undefined, token: string | undefined, username: string, email: string, password: string) => {
-        setIsLoading(true)
-        setError(null)
+        setIsLoading(true);
+        setError(null);
 
-        const response = await fetch(`http://localhost:5000/reset-password/${id}/${token}`, {
-           method: 'POST',
-           headers: {'Content-Type': 'application/json'},
-           body: JSON.stringify({id, token, username, email, password}) 
-        })
-        const json = await response.json()
+        try {
+            const response = await axios.post(`http://localhost:5000/reset-password/${id}/${token}`, {
+                id,
+                token,
+                username,
+                email,
+                password
+            }, {
+                headers: { 'Content-Type': 'application/json' }
+            });
 
-        if(!response.ok) {
-            setIsLoading(false)
-            setError(json.error)
+            const json = response.data;
+
+            if (response.status === 200) {
+                setIsLoading(false);
+                navigate('/login');
+
+            } else {
+                setIsLoading(false);
+                setError(json.error);
+            }
+        } catch (error: any) {
+            setIsLoading(false);
+            setError(error.response?.data.error || "Wystąpił błąd podczas wysyłania żądania.");
         }
+    };
 
-        if(response.ok) {
-            setIsLoading(false)
-            navigate('/login');
-        }
-    }
-    return {resetPassword, isLoading, error}
-}
+    return { resetPassword, isLoading, error };
+};

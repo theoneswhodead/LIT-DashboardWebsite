@@ -4,7 +4,7 @@ import { Header, News, AboutUs, OldProjects } from '../containtes'
 const Home = () => {
   return (
     <div >
-      <div className='gradient__bg h-[100vh]'>
+      <div className='gradient__bg lg:h-[100vh]'>
         <Navbar />
         <Header />
       </div>

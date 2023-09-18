@@ -12,6 +12,10 @@
   background:radial-gradient(circle at 100% 50%, #af0000 -300%, #0a0a0a 55%);
 }
 
+.gradient__about { 
+  background:radial-gradient(circle at 100% 5%, #af0000 -300%, #0a0a0a 55%);
+}
+
 
 .reflect {
   -webkit-box-reflect: below 1px linear-gradient(
