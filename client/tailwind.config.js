@@ -9,6 +9,7 @@ export default {
         card_red: "#270000",
         dark_opacity: "rgba(0, 0, 0, 0.35)",
         almost_black: '#0a0a0a',
+        gray: "#888",
         light_red: "#f50000",
         white: "#ffffff",
         footer: "#0f0f0f",

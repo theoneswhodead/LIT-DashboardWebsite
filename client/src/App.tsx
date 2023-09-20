@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 import { RootLayout, DashboardLayout } from "./layouts";
-import { Home, Signup, Login, Forgot, ResetPassword, Dashboard} from "./pages";
+import { Home, Signup, Login, Forgot, ResetPassword, Dashboard, DashboardProfile, DashboardUserDiscordOverview} from "./pages";
 import { useAuthContext } from './hooks/useAuthContext'
 
 const App = () => {
@@ -45,6 +45,14 @@ const App = () => {
         {
           path: '/dashboard',
           element: user ? <Dashboard /> : <Navigate to="/" />
+        },
+        {
+          path: '/dashboard/profile',
+          element:  user ? <DashboardProfile /> : <Navigate to="/" />
+        },
+        {
+          path: '/dashboard/user-discord-overview',
+          element: user ? <DashboardUserDiscordOverview /> : <Navigate to="/" />
         }
       ]
     }

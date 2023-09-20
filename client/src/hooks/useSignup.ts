@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // Dodana importacja Axios
+import axios from "axios"; 
 
 export const useSignup = () => {
     const [error, setError] = useState<string | null>(null);

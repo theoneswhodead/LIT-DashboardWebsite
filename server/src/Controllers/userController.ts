@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import jwt from 'jsonwebtoken'
 import User from '../models/userModel'
+import { JwtPayload } from 'jsonwebtoken'
 
 const createToken = (_id: object, time: string) => {
     return jwt.sign({_id}, process.env.SECRET, {expiresIn: time})
@@ -79,5 +80,27 @@ export const userResetPassword = async (req: Request, res: Response) => {
 
     } catch (error) {
         res.status(400).json({error: error.message}) 
+    }
+}
+
+export const  userUpdateCredentials = async (req: Request, res: Response) => {
+    const {token, username, email, password } = req.body;
+
+    try {
+
+        const decodeToken = jwt.decode(token) as JwtPayload
+
+        const id = decodeToken._id 
+
+        const user = await User.updateCredentials(id, username, email, password)
+        console.log('Updated cred ',id, username, email, password)
+
+       // const user = await User.signup(username, email, password)
+       // const token = createToken(user._id, '3d')
+
+        res.status(200).json({user})
+    } catch (error) {
+        res.status(400).json({error: error.message})
+        
     }
 }

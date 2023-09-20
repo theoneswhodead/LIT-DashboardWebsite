@@ -125,21 +125,64 @@ userSchema.statics.resetPassword = async function(id: string, username: string, 
     return user
 }
 
+userSchema.statics.updateCredentials = async function(id: string, username?: string, email?: string, password?: string ) {
+    console.log('static updateCredentials ', )
+    if (!id) {
+        throw Error('Błąd autoryzacji')
+    }
+
+    if (email && !validator.isEmail(email)) {
+        throw Error('Podany adres E-mail nie jest poprawny!')
+    }
+
+    if (password && !validator.isStrongPassword(password)) {
+        throw Error('Hasło jest za słabe!')
+    }
+
+
+    if (username) {
+        const existUsername = await this.findOne({ username: username })
+        if (existUsername) {
+            throw Error('Ten username jest w użyciu')
+        }
+    }
+
+    if (email) {
+        const existEmail = await this.findOne({ email: email })
+        if (existEmail) {
+            throw Error('Ten E-mail jest w użyciu')
+        }
+    }
+
+    const updateFields: { [key: string]: string } = {};
+   
+
+    if (username) {
+        updateFields.username = username;
+    }
+    if (email) {
+        updateFields.email = email;
+    }
+    if (password) {
+        const salt = await bcrypt.genSalt(10)
+        const hash = await bcrypt.hash(password, salt)
+        updateFields.password = hash;
+    }
+    const user = await this.findByIdAndUpdate(id, updateFields, { new: true });
+
+    return user
+}
+
 
 
 interface UserStatics extends Model<UserDoc> {
     signup(username: string, email: string, password: string): Promise<UserDoc>;
     login(email: string, password: string): Promise<UserDoc>;
     forgot(email: string): Promise<UserDoc>;
-    resetPassword(
-      id: string,
-      username: string,
-      email: string,
-      password: string
-    ): Promise<UserDoc>;
+    resetPassword(id: string, username: string, email: string, password: string): Promise<UserDoc>;
+    updateCredentials(id: string, username: string, email: string, password: string): Promise<UserDoc>;
   }
   
-  // Tworzenie modelu użytkownika
   const User = mongoose.model<UserDoc, UserStatics>('user', userSchema);
   
   export default User;

@@ -1,5 +1,3 @@
-import { NavLink } from "react-router-dom"
-
 const News = () => {
   return (
 
@@ -7,7 +5,7 @@ const News = () => {
 
       <div className="pb-[49px] px-6 sm:px-[40px] lg:px-[80px]">
             <h1 className="text-white text-[40px] leading-[40px] font-black mb-[24px] sm:text-[48px] sm:leading-[48px] lg:text-[72px] lg:leading-[72px] font-barlow_condensed">Odkryj Nowości na Lunaris i <span className='text-dark_red'>Tenebris</span> </h1>
-            <p className="text-white text-[16px] leading-[26px] font-roboto">Nowatorskie podejście do rozgrywki w SCP: Secret Laboratory na Lunaris i Tenebris jest naszą główną inicjatywą. Włożyliśmy ogromny wysiłek, aby wprowadzić systemy MMO, takie jak Codzienne Questy, Levelowanie oraz podział na frakcje, aby odświeżyć rozgrywkę. Warto zaznaczyć, że te zmiany nie ingerują w główny koncept rozgrywki. Wręcz przeciwnie, mają na celu jej urozmaicenie, podobnie jak to robiły pluginy na naszym poprzednim serwerze - <span className="text-gold"><NavLink to="">GoldLegends</NavLink></span>.</p>
+            <p className="text-white text-[16px] leading-[26px] font-roboto">Nowatorskie podejście do rozgrywki w SCP: Secret Laboratory na Lunaris i Tenebris jest naszą główną inicjatywą. Włożyliśmy ogromny wysiłek, aby wprowadzić systemy MMO, takie jak Codzienne Questy, Levelowanie oraz podział na frakcje, aby odświeżyć rozgrywkę. Warto zaznaczyć, że te zmiany nie ingerują w główny koncept rozgrywki. Wręcz przeciwnie, mają na celu jej urozmaicenie, podobnie jak to robiły pluginy na naszym poprzednim serwerze - GoldLegends.</p>
         </div>
   
       <div className="flex flex-col lg:flex-row">

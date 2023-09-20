@@ -1,5 +1,10 @@
 import { Request, Response } from 'express'
 import axios from 'axios'
+import jwt from 'jsonwebtoken'
+
+const createToken = (_id: object, time: string) => {
+  return jwt.sign({_id}, process.env.SECRET, {expiresIn: time})
+}
 
 export const dashboard = (req: Request, res: Response) => {
 
@@ -31,8 +36,6 @@ export const discordCallback = async (req: Request, res: Response) => {
           
           const params = new URLSearchParams(paramsObject as Record<string, string>);
 
-          console.log(params)
-
           const headers = {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Accept-Encoding': 'application/x-www-form-urlencoded'
@@ -56,8 +59,12 @@ export const discordCallback = async (req: Request, res: Response) => {
 
           const { id, username, avatar } = userResponse.data
 
-            console.log(response.data)
-         res.send(userResponse.data)
+          const token = createToken(id, '3d')
+
+          res.cookie('discordToken', token, { maxAge: 3 * 24 * 60 * 60 * 1000 });
+
+          res.redirect('http://localhost:5173/dashboard/profile'); 
+
         
     } catch (error) {
         res.status(400).json({error: error.message})
