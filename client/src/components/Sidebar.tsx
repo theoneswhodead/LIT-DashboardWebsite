@@ -3,6 +3,7 @@ import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
 
 const Sidebar = () => {
+  console.log('Sidebar')
 
   const { user } = useAuthContext()
 

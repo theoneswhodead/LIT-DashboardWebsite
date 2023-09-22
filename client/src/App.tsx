@@ -9,6 +9,7 @@ import { Home, Signup, Login, Forgot, ResetPassword, Dashboard, DashboardProfile
 import { useAuthContext } from './hooks/useAuthContext'
 
 const App = () => {
+  console.log('app')
   const { user } = useAuthContext()
 
   const router = createBrowserRouter([

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 const Header = () => {
   return (
-    <div id="home" className='flex flex-col sm:flex-row p-6 sm:p-[40px] lg:px-[80px] mt-[24px]'>
+    <section id="home" className='flex flex-col sm:flex-row p-6 sm:p-[40px] lg:px-[80px] mt-[24px]'>
       <div className='sm:flex sm:flex-col justify-center sm:flex-1 lg:mr-[80px]'>
 
           <h1 className='font-barlow_condensed text-white font-black text-[35px] leading-[40px] sm:text-[48px] sm:leading-[48px] lg:text-[72px] lg:leading-[72px] mb-[32px] '>Lux In <span className='text-dark_red'>Tenebris</span> czeka na ciebie, Dołącz już <span className='text-dark_red'>Teraz!</span></h1>
@@ -17,7 +17,7 @@ const Header = () => {
           <img src="../../assets/world_map500.png" alt="World Map" />
       </div>
 
-</div>
+</section>
   )
 }
 

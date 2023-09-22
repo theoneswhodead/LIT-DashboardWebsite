@@ -4,6 +4,8 @@ import { useUpdateCredentials } from '../hooks/useUpdateCredentials'
 
 const DashboardProfile = () => {
 
+  console.log('discord profile ')
+
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -19,6 +21,11 @@ const DashboardProfile = () => {
         setDiscordSignin(true)
       }
     },[])
+
+    const handleDiscord = () => {
+      setDiscordSignin(false)
+      Cookie.remove('discordToken')
+    }
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
 
@@ -74,9 +81,9 @@ const DashboardProfile = () => {
                 <h2 className='text-white uppercase text-[24px] mb-[32px]'>Połącz <span className='text-dark_red '>Konta</span></h2>
             {
               discordSignin
-              ?  <div className="flex items-center py-2 px-4 rounded-lg bg-[#5865F2] hover:bg-[#5865F2]/80 hover:text-white/80 transition-colors duration-300 mb-[24px]">
+              ?  <div className="flex items-center py-2 px-4 rounded-lg bg-[#5865F2] hover:bg-[#5865F2]/80 hover:text-white/80 transition-colors duration-300 mb-[24px]" onClick={handleDiscord}>
               <img src="../../assets/discord-icon.svg" alt="" className="h-7 w-7 mr-4"/>
-              <span className="text-sm">Połączono</span>
+              <span className="text-sm">Połączono, rozłącz</span>
              </div>
              :
              <a className="flex items-center py-2 px-4 rounded-lg bg-[#5865F2] hover:bg-[#5865F2]/80 hover:text-white/80 transition-colors duration-300 mb-[24px]"

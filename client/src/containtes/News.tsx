@@ -1,7 +1,7 @@
 const News = () => {
   return (
 
-    <div id="news" className="gradient__news flex flex-col h-full lg:h-[100vh] pt-[120px] pb-[120px] relative">
+    <section id="news" className="gradient__news flex flex-col h-full lg:h-[100vh] pt-[120px] pb-[120px] relative">
 
       <div className="pb-[49px] px-6 sm:px-[40px] lg:px-[80px]">
             <h1 className="text-white text-[40px] leading-[40px] font-black mb-[24px] sm:text-[48px] sm:leading-[48px] lg:text-[72px] lg:leading-[72px] font-barlow_condensed">Odkryj Nowości na Lunaris i <span className='text-dark_red'>Tenebris</span> </h1>
@@ -45,7 +45,7 @@ const News = () => {
       </div>
         
 
-    </div>
+    </section>
   )
 }
 

@@ -173,8 +173,6 @@ userSchema.statics.updateCredentials = async function(id: string, username?: str
     return user
 }
 
-
-
 interface UserStatics extends Model<UserDoc> {
     signup(username: string, email: string, password: string): Promise<UserDoc>;
     login(email: string, password: string): Promise<UserDoc>;

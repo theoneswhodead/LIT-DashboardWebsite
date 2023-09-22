@@ -6,6 +6,7 @@ const DashboardNavbar = () => {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
 const MobileSidebar = () => {
+  console.log('DashboardNavbar')
   return (
     <div className='flex flex-col justify-center items-end sm:hidden'>
     {toggleMenu

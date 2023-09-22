@@ -2,7 +2,6 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import User, { UserDoc } from '../models/userModel';
 
-// Rozszerz interfejs Request o własność user
 declare global {
   namespace Express {
     interface Request {
@@ -11,11 +10,7 @@ declare global {
   }
 }
 
-const requireAuth = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+const requireAuth = async (req: Request, res: Response, next: NextFunction) => {
   const { authorization } = req.headers;
 
   if (!authorization) {

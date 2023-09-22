@@ -9,6 +9,7 @@ const createToken = (_id: object, time: string) => {
 
 export const userLogin = async (req: Request, res: Response) => {
     const { email, password } = req.body;
+    console.log('logiiin')
 
     try {
         const user = await User.login(email, password)
@@ -93,10 +94,7 @@ export const  userUpdateCredentials = async (req: Request, res: Response) => {
         const id = decodeToken._id 
 
         const user = await User.updateCredentials(id, username, email, password)
-        console.log('Updated cred ',id, username, email, password)
 
-       // const user = await User.signup(username, email, password)
-       // const token = createToken(user._id, '3d')
 
         res.status(200).json({user})
     } catch (error) {
