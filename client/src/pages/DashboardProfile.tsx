@@ -1,6 +1,7 @@
 import { useState, FormEvent, useEffect } from 'react'
-import Cookie from 'js-cookie'
 import { useUpdateCredentials } from '../hooks/useUpdateCredentials'
+import { useDiscordAuthContext } from '../hooks/useDiscordAuthContext'
+import { useDiscordLogout } from '../hooks/useDiscordLogout'
 
 const DashboardProfile = () => {
 
@@ -10,22 +11,14 @@ const DashboardProfile = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const { updateCredentials, error, isLoading } = useUpdateCredentials()
-
-    const [discordSignin, setDiscordSignin] = useState(false);
-    const [steamSignin, setSteamSignin] = useState(false);
-
-
-
-    useEffect(() => {
-      if(Cookie.get('discordToken')) {
-        setDiscordSignin(true)
-      }
-    },[])
+    const { discordUser } = useDiscordAuthContext()
+    const { discordLogout } = useDiscordLogout();
 
     const handleDiscord = () => {
-      setDiscordSignin(false)
-      Cookie.remove('discordToken')
+      discordLogout()
     }
+     const [steamSignin, setSteamSignin] = useState(false); //temp
+
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
 
@@ -80,7 +73,7 @@ const DashboardProfile = () => {
             <div className='gradient__card rounded-3xl p-6 sm:p-[40px] lg:p-[80px] m-6  sm:m-[40px] lg:m-[80px] lg:ml-0 md:ml-0'>
                 <h2 className='text-white uppercase text-[24px] mb-[32px]'>Połącz <span className='text-dark_red '>Konta</span></h2>
             {
-              discordSignin
+              discordUser
               ?  <div className="flex items-center py-2 px-4 rounded-lg bg-[#5865F2] hover:bg-[#5865F2]/80 hover:text-white/80 transition-colors duration-300 mb-[24px]" onClick={handleDiscord}>
               <img src="../../assets/discord-icon.svg" alt="" className="h-7 w-7 mr-4"/>
               <span className="text-sm">Połączono, rozłącz</span>

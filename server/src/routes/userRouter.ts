@@ -9,8 +9,6 @@ router.post("/signup", userSignup)
 router.post("/forgot", userForgot)
 router.post('/reset-password/:id/:token', userResetPassword)
 
-//router.use(requireAuth);
-
 router.post('/dashboard/profile', userUpdateCredentials)
 
 

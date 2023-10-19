@@ -5,7 +5,7 @@ import { Sidebar } from '../components'
 const DashboardLayout = () => {
   console.log('DashboardLayout')
   return (
-    <div className='bg-almost_black lg:h-[100vh] overflow-hidden'>
+    <div className='bg-almost_black  overflow-hidden'>
       <DashboardNavbar />
       
       <main className='flex  justify-center sm:justify-start'>

@@ -19,8 +19,8 @@ const MobileSidebar = () => {
             <NavLink to="/dashboard/user-sl-overview" className="hover:text-dark_red hover_animate tracking-wide">Serwer SCP: SL</NavLink>
             <NavLink to="/dashboard/user-discord-overview" className="hover:text-dark_red hover_animate tracking-wide">Użytkownik Discord</NavLink>
             <NavLink to="/dashboard/server-discord-overview" className="hover:text-dark_red hover_animate tracking-wide">Serwer DC</NavLink>
-            <NavLink to="/dashboard/textchannel-discord-overview" className="hover:text-dark_red hover_animate tracking-wide">Tekstowe</NavLink>
-            <NavLink to="/dashboard/voicechannel-discord-overview" className="hover:text-dark_red hover_animate tracking-wide">Głosowe</NavLink>
+            <NavLink to="/dashboard/text-channel-overview" className="hover:text-dark_red hover_animate tracking-wide">Tekstowe</NavLink>
+            <NavLink to="/dashboard/voice-channel-overview" className="hover:text-dark_red hover_animate tracking-wide">Głosowe</NavLink>
         </div>
     }
     </div>

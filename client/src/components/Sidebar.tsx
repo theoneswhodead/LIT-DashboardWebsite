@@ -21,8 +21,8 @@ const Sidebar = () => {
             <NavLink to="/dashboard/user-sl-overview" className="hover:text-dark_redd tracking-wide hover:bg-dark_red px-6 py-2 rounded-lg">Serwer SCP: SL</NavLink>
             <NavLink to="/dashboard/user-discord-overview" className="hover:text-dark_redd tracking-wide hover:bg-dark_red px-6 py-2 rounded-lg">Użytkownik Discord</NavLink>
             <NavLink to="/dashboard/server-discord-overview" className="hover:text-dark_redd tracking-wide hover:bg-dark_red px-6 py-2 rounded-lg">Serwer DC</NavLink>
-            <NavLink to="/dashboard/textchannel-discord-overview" className="hover:text-dark_redd tracking-wide hover:bg-dark_red px-6 py-2 rounded-lg">Kanały tekstowe</NavLink>
-            <NavLink to="/dashboard/voicechannel-discord-overview" className="hover:text-dark_redd tracking-wide hover:bg-dark_red px-6 py-2 rounded-lg">Kanały głosowe</NavLink>
+            <NavLink to="/dashboard/text-channel-overview" className="hover:text-dark_redd tracking-wide hover:bg-dark_red px-6 py-2 rounded-lg">Kanały tekstowe</NavLink>
+            <NavLink to="/dashboard/voice-channel-overview" className="hover:text-dark_redd tracking-wide hover:bg-dark_red px-6 py-2 rounded-lg">Kanały głosowe</NavLink>
 
           </div>
           <div className="">

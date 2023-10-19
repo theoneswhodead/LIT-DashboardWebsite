@@ -1,6 +1,4 @@
-import mongoose, { Model, Document } from 'mongoose';
-
-const Schema = mongoose.Schema
+import mongoose  from 'mongoose';
 
 const numDefault = {
     type: Number,

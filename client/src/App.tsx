@@ -5,12 +5,14 @@ import {
 } from "react-router-dom";
 
 import { RootLayout, DashboardLayout } from "./layouts";
-import { Home, Signup, Login, Forgot, ResetPassword, Dashboard, DashboardProfile, DashboardUserDiscordOverview} from "./pages";
+import { Home, Signup, Login, Forgot, ResetPassword, Dashboard, DashboardProfile, DashboardUserDiscordOverview, DashboardServerDiscordOverview, DashboardTextChannelOverview, DashboardVoiceChannelOverview} from "./pages";
 import { useAuthContext } from './hooks/useAuthContext'
+import { useDiscordAuthContext } from './hooks/useDiscordAuthContext'
 
 const App = () => {
   console.log('app')
   const { user } = useAuthContext()
+  const { discordUser } = useDiscordAuthContext()
 
   const router = createBrowserRouter([
     {
@@ -53,7 +55,19 @@ const App = () => {
         },
         {
           path: '/dashboard/user-discord-overview',
-          element: user ? <DashboardUserDiscordOverview /> : <Navigate to="/" />
+          element: user && discordUser ? <DashboardUserDiscordOverview /> : <Navigate to="/" />
+        },
+        {
+          path: '/dashboard/server-discord-overview',
+          element: user && discordUser ? <DashboardServerDiscordOverview /> : <Navigate to="/" />
+        },
+        {
+          path: '/dashboard/text-channel-overview',
+          element: user && discordUser ? <DashboardTextChannelOverview /> : <Navigate to="/" />
+        },
+        {
+          path: '/dashboard/voice-channel-overview',
+          element: user && discordUser ? <DashboardVoiceChannelOverview /> : <Navigate to="/" />
         }
       ]
     }

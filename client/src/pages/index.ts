@@ -6,6 +6,9 @@ import ResetPassword from './ResetPassword'
 import Dashboard from './Dashboard'
 import DashboardProfile from './DashboardProfile'
 import DashboardUserDiscordOverview from './DashboardUserDiscordOverview'
+import DashboardServerDiscordOverview from './DashboardServerDiscordOverview'
+import DashboardTextChannelOverview from './DashboardTextChannelOverview'
+import DashboardVoiceChannelOverview from './DashboardVoiceChannelOverview'
 
 export {
     Home,
@@ -15,5 +18,8 @@ export {
     ResetPassword,
     Dashboard,
     DashboardProfile,
-    DashboardUserDiscordOverview
+    DashboardUserDiscordOverview,
+    DashboardServerDiscordOverview,
+    DashboardTextChannelOverview,
+    DashboardVoiceChannelOverview,
 }

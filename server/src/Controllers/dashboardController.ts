@@ -2,7 +2,8 @@ import { Request, Response } from 'express'
 import axios from 'axios'
 import jwt from 'jsonwebtoken'
 import { JwtPayload } from 'jsonwebtoken'
-import UserOverview from '../models/userDiscordOverview'
+
+import { UserOverview, ServerOverview, TextChannelOverview, VoiceChannelOverview } from '../models'
 const mongoose = require('mongoose');
 
 const createToken = (_id: object, time: string) => {
@@ -77,57 +78,31 @@ export const discordCallback = async (req: Request, res: Response) => {
 export const userDiscordOverview = async (req: Request, res: Response) => {
     try {
       const token = req.cookies['discordToken']
-      //res.send(req.cookies['discordToken'])
-      //console.log(req.cookies)
-      console.log(req.cookies['discordToken'])
-     // res.status(200).json(token)
 
       jwt.verify(token, process.env.SECRET, async (error: any) => {
         if(error) {
          
           console.log('Token prawdopodobnie wygasł')
           return res.json({error: 'Token prawdopodobnie wygasł lub nie połączyłeś konta z Discord'})
-      } else {
+        } else {
          
-        const decodeToken = jwt.decode(token) as JwtPayload
-
-        
-
-        const userId = decodeToken._id;
-
-        // if (!mongoose.Types.ObjectId.isValid(_id)) {
-        //   return res.status(400).json({ error: 'Nieprawidłowy identyfikator ObjectId' });
-        //  // console.log('invalid id')
-        // }
+          const decodeToken = jwt.decode(token) as JwtPayload
+          const userId = decodeToken._id;
+          const userOverview = await UserOverview.find({ 'users.userId': userId })
       
-        console.log(userId)
-    
-       //const userOverview = await UserOverview.findById(_id)
+          if (!userOverview) {
+             return res.status(404).json({ error: 'Nie znaleziono użytkownika' });
+         }
 
-      // if(!userOverview) {
-      //   return res.status(404).json({error: 'Nie znaleziono danych'})
-      // }
-      // res.status(200).json(userOverview)
+          const userSchemaInstance = userOverview[1].users.find((user: any) => user.userId === userId); // wybór serwera 
 
-      const userOverview = await UserOverview.findOne({ 'users.userId': userId })
-      
-        if (!userOverview) {
-          return res.status(404).json({ error: 'Nie znaleziono użytkownika' });
+          if (!userSchemaInstance) {
+             return res.status(404).json({ error: 'Nie znaleziono danych użytkownika' });
+          }
+
+          res.status(200).json(userSchemaInstance);
+
         }
-      
-        // Teraz masz dostęp do userOverview, który zawiera odpowiednią instancję userSchema
-        const userSchemaInstance = userOverview.users.find((user: any) => user.userId === userId);
-      
-        if (!userSchemaInstance) {
-          return res.status(404).json({ error: 'Nie znaleziono danych użytkownika' });
-        }
-      
-        // Możesz teraz wyświetlić lub przetwarzać dane dla tego użytkownika
-        res.status(200).json(userSchemaInstance);
-      
-          
-
-      }
       })
 
     } catch (error) {
@@ -136,13 +111,83 @@ export const userDiscordOverview = async (req: Request, res: Response) => {
 }
 
 export const serverDiscordOverview = async (req: Request, res: Response) => {
-  
+  try {
+    const token = req.cookies['discordToken']
+
+    jwt.verify(token, process.env.SECRET, async (error: any) => {
+      if(error) {
+       
+        console.log('Token prawdopodobnie wygasł')
+        return res.json({error: 'Token prawdopodobnie wygasł lub nie połączyłeś konta z Discord'})
+      } else {
+       
+        const serverOverview = await ServerOverview.find({ 'guildId': '629714082072887312' }) //temp 
+    
+        if (!serverOverview) {
+           return res.status(404).json({ error: 'Nie znaleziono servera' });
+       }
+
+        res.status(200).json(serverOverview);
+
+      }
+    })
+
+  } catch (error) {
+    res.status(400).json({error: error.message})
+  }
 }
 
 export const textChannelOverview = async (req: Request, res: Response) => {
-  
+  try {
+    const token = req.cookies['discordToken']
+
+    jwt.verify(token, process.env.SECRET, async (error: any) => {
+      if(error) {
+       
+        console.log('Token prawdopodobnie wygasł')
+        return res.json({error: 'Token prawdopodobnie wygasł lub nie połączyłeś konta z Discord'})
+      } else {
+       
+        const textChannelOverview = await TextChannelOverview.find({ 'guildId': '629714082072887312' }) //temp 
+    
+        if (!textChannelOverview) {
+           return res.status(404).json({ error: 'Nie znaleziono servera' });
+       }
+        console.log('textChannelOverview ',textChannelOverview)
+
+        res.status(200).json(textChannelOverview);
+
+      }
+    })
+
+  } catch (error) {
+    res.status(400).json({error: error.message})
+  }
 }
 
 export const voiceChannelOverview = async (req: Request, res: Response) => {
-  
+  try {
+     const token = req.cookies['discordToken']
+      console.log(token)
+     jwt.verify(token, process.env.SECRET, async (error: any) => {
+      console.log('error1 ', error)
+       if(error) {
+        console.log('error2 ', error)
+        
+         console.log('Token prawdopodobnie wygasł')
+         return res.json({error: 'Token prawdopodobnie wygasł lub nie połączyłeś konta z Discord'})
+       } else {
+        
+         const voiceChannelOverview = await VoiceChannelOverview.find({ 'guildId': '629714082072887312' }) //temp 
+     
+         if (!voiceChannelOverview) {
+            return res.status(404).json({ error: 'Nie znaleziono servera' });
+        }
+         res.status(200).json(voiceChannelOverview);
+       }
+     })
+ 
+   } catch (error) {
+     res.status(400).json({error: error.message})
+   }
 }
