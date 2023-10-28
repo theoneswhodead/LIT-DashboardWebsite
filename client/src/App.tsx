@@ -5,14 +5,16 @@ import {
 } from "react-router-dom";
 
 import { RootLayout, DashboardLayout } from "./layouts";
-import { Home, Signup, Login, Forgot, ResetPassword, Dashboard, DashboardProfile, DashboardUserDiscordOverview, DashboardServerDiscordOverview, DashboardTextChannelOverview, DashboardVoiceChannelOverview} from "./pages";
+import { Home, Signup, Login, Forgot, ResetPassword, Dashboard, DashboardProfile, DashboardUserDiscordOverview, DashboardServerDiscordOverview, DashboardTextChannelOverview, DashboardVoiceChannelOverview, DashboardServerSlOverview} from "./pages";
 import { useAuthContext } from './hooks/useAuthContext'
 import { useDiscordAuthContext } from './hooks/useDiscordAuthContext'
+import { useSteamAuthContext } from "./hooks/useSteamAuthContext";
 
 const App = () => {
   console.log('app')
   const { user } = useAuthContext()
   const { discordUser } = useDiscordAuthContext()
+  const { steamUser } = useSteamAuthContext()
 
   const router = createBrowserRouter([
     {
@@ -54,20 +56,24 @@ const App = () => {
           element:  user ? <DashboardProfile /> : <Navigate to="/" />
         },
         {
+          path: '/dashboard/server-sl-overview',
+          element: user && steamUser ? <DashboardServerSlOverview />  : <Navigate to="/dashboard" />
+        },
+        {
           path: '/dashboard/user-discord-overview',
-          element: user && discordUser ? <DashboardUserDiscordOverview /> : <Navigate to="/" />
+          element: user && discordUser ? <DashboardUserDiscordOverview /> : <Navigate to="/dashboard" />
         },
         {
           path: '/dashboard/server-discord-overview',
-          element: user && discordUser ? <DashboardServerDiscordOverview /> : <Navigate to="/" />
+          element: user && discordUser ? <DashboardServerDiscordOverview /> : <Navigate to="/dashboard" />
         },
         {
           path: '/dashboard/text-channel-overview',
-          element: user && discordUser ? <DashboardTextChannelOverview /> : <Navigate to="/" />
+          element: user && discordUser ? <DashboardTextChannelOverview /> : <Navigate to="/dashboard" />
         },
         {
           path: '/dashboard/voice-channel-overview',
-          element: user && discordUser ? <DashboardVoiceChannelOverview /> : <Navigate to="/" />
+          element: user && discordUser ? <DashboardVoiceChannelOverview /> : <Navigate to="/dashboard" />
         }
       ]
     }

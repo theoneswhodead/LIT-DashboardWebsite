@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from 'js-cookie'
 
 export const useLogin = () => {
     const [error, setError] = useState<string | null>(null);
@@ -22,7 +23,8 @@ export const useLogin = () => {
             const json = response.data;
 
             if (response.status === 200) {
-                localStorage.setItem('user', JSON.stringify(json));
+               // localStorage.setItem('user', JSON.stringify(json));
+                Cookies.set('user', JSON.stringify(json), { expires: 3 })
                 dispatch({ type: 'LOGIN', payload: json });
                 setIsLoading(false);
                 navigate('/dashboard');

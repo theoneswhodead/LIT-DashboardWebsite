@@ -9,6 +9,7 @@ import DashboardUserDiscordOverview from './DashboardUserDiscordOverview'
 import DashboardServerDiscordOverview from './DashboardServerDiscordOverview'
 import DashboardTextChannelOverview from './DashboardTextChannelOverview'
 import DashboardVoiceChannelOverview from './DashboardVoiceChannelOverview'
+import DashboardServerSlOverview from './DashboardServerSlOverview'
 
 export {
     Home,
@@ -22,4 +23,5 @@ export {
     DashboardServerDiscordOverview,
     DashboardTextChannelOverview,
     DashboardVoiceChannelOverview,
+    DashboardServerSlOverview,
 }

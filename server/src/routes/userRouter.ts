@@ -7,9 +7,13 @@ const router: Router = express.Router()
 router.post("/login", userLogin)
 router.post("/signup", userSignup)
 router.post("/forgot", userForgot)
+
+
+//router.use(requireAuth);
 router.post('/reset-password/:id/:token', userResetPassword)
 
 router.post('/dashboard/profile', userUpdateCredentials)
+
 
 
 

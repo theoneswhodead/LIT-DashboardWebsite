@@ -5,12 +5,12 @@ import { Sidebar } from '../components'
 const DashboardLayout = () => {
   console.log('DashboardLayout')
   return (
-    <div className='bg-almost_black  overflow-hidden'>
+    <div className='bg-almost_black overflow-hidden min-h-[100vh]'>
       <DashboardNavbar />
       
-      <main className='flex  justify-center sm:justify-start'>
+      <main className='flex justify-center sm:justify-start'>
         <Sidebar />
-        <Outlet/>
+          <Outlet/>
       </main>
     </div>
   )

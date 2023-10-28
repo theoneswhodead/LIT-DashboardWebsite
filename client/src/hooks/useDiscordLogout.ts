@@ -1,12 +1,11 @@
 import { useDiscordAuthContext } from "./useDiscordAuthContext";
-import Cookie from 'js-cookie'
+import Cookies from 'js-cookie'
 
 export const useDiscordLogout = () => {
     const { dispatch } = useDiscordAuthContext();
 
     const discordLogout = () => {
-        Cookie.remove('discordToken')
-
+        Cookies.remove('discordToken')
         dispatch({type: 'LOGOUT'})
     }
     

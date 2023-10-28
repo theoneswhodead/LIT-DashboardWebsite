@@ -15,19 +15,19 @@ const MobileSidebar = () => {
     }
     {
         toggleMenu && 
-        <div className='text-white text-[16px] flex flex-col absolute bg-dark_opacity inset-0 top-[89px] backdrop-blur-[70px] right-1/3 gap-[33px] p-6 sm:hidden z-10'>
-            <NavLink to="/dashboard/user-sl-overview" className="hover:text-dark_red hover_animate tracking-wide">Serwer SCP: SL</NavLink>
-            <NavLink to="/dashboard/user-discord-overview" className="hover:text-dark_red hover_animate tracking-wide">Użytkownik Discord</NavLink>
-            <NavLink to="/dashboard/server-discord-overview" className="hover:text-dark_red hover_animate tracking-wide">Serwer DC</NavLink>
-            <NavLink to="/dashboard/text-channel-overview" className="hover:text-dark_red hover_animate tracking-wide">Tekstowe</NavLink>
-            <NavLink to="/dashboard/voice-channel-overview" className="hover:text-dark_red hover_animate tracking-wide">Głosowe</NavLink>
+        <div className='text-white text-[16px] flex flex-col absolute bg-dark_opacity top-[89px] left-0 backdrop-blur-[70px] right-1/3 gap-[33px] p-6 sm:hidden z-40'>
+            <NavLink to="/dashboard/server-sl-overview" className={({ isActive }) => (isActive ? 'text-dark_red hover_animate tracking-wide' : 'hover:text-dark_red hover_animate tracking-wide')}>Serwer SCP: SL</NavLink>
+            <NavLink to="/dashboard/user-discord-overview" className={({ isActive }) => (isActive ? 'text-dark_red hover_animate tracking-wide' : 'hover:text-dark_red hover_animate tracking-wide')}>Użytkownik Discord</NavLink>
+            <NavLink to="/dashboard/server-discord-overview" className={({ isActive }) => (isActive ? 'text-dark_red hover_animate tracking-wide' : 'hover:text-dark_red hover_animate tracking-wide')}>Serwer DC</NavLink>
+            <NavLink to="/dashboard/text-channel-overview" className={({ isActive }) => (isActive ? 'text-dark_red hover_animate tracking-wide' : 'hover:text-dark_red hover_animate tracking-wide')}>Tekstowe</NavLink>
+            <NavLink to="/dashboard/voice-channel-overview" className={({ isActive }) => (isActive ? 'text-dark_red hover_animate tracking-wide' : 'hover:text-dark_red hover_animate tracking-wide')}>Głosowe</NavLink>
         </div>
     }
     </div>
   )
 }
   return (
-    <div className='flex justify-between items-center p-6 sm:p-[40px] lg:px-[80px] '>
+    <div className='flex fixed justify-between items-center p-6 sm:p-[40px] lg:px-[80px] w-full bg-almost_black z-20'>
       <MobileSidebar  />
       <div className='w-[110px] lg:w-[210px]'>
         <NavLink to="/">

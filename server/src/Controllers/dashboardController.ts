@@ -2,9 +2,7 @@ import { Request, Response } from 'express'
 import axios from 'axios'
 import jwt from 'jsonwebtoken'
 import { JwtPayload } from 'jsonwebtoken'
-
-import { UserOverview, ServerOverview, TextChannelOverview, VoiceChannelOverview } from '../models'
-const mongoose = require('mongoose');
+import { UserOverview, ServerOverview, TextChannelOverview, VoiceChannelOverview, ServerSlOverview } from '../models'
 
 const createToken = (_id: object, time: string) => {
   return jwt.sign({_id}, process.env.SECRET, {expiresIn: time})
@@ -12,12 +10,6 @@ const createToken = (_id: object, time: string) => {
 
 export const dashboard = (req: Request, res: Response) => {
 
-}
-
-export const discordLogin = (req: Request, res: Response) => {
-    const url = 'https://discord.com/api/oauth2/authorize?client_id=1153269554210951208&redirect_uri=http%3A%2F%2Flocalhost%3A5000%2Fdashboard%2Fauth%2Fdiscord%2Fcallback&response_type=code&scope=identify'
-
-    res.redirect(url)
 }
 
 export const discordCallback = async (req: Request, res: Response) => {
@@ -126,9 +118,7 @@ export const serverDiscordOverview = async (req: Request, res: Response) => {
         if (!serverOverview) {
            return res.status(404).json({ error: 'Nie znaleziono servera' });
        }
-
-        res.status(200).json(serverOverview);
-
+        res.status(200).json(serverOverview)
       }
     })
 
@@ -153,8 +143,6 @@ export const textChannelOverview = async (req: Request, res: Response) => {
         if (!textChannelOverview) {
            return res.status(404).json({ error: 'Nie znaleziono servera' });
        }
-        console.log('textChannelOverview ',textChannelOverview)
-
         res.status(200).json(textChannelOverview);
 
       }
@@ -168,11 +156,8 @@ export const textChannelOverview = async (req: Request, res: Response) => {
 export const voiceChannelOverview = async (req: Request, res: Response) => {
   try {
      const token = req.cookies['discordToken']
-      console.log(token)
      jwt.verify(token, process.env.SECRET, async (error: any) => {
-      console.log('error1 ', error)
        if(error) {
-        console.log('error2 ', error)
         
          console.log('Token prawdopodobnie wygasł')
          return res.json({error: 'Token prawdopodobnie wygasł lub nie połączyłeś konta z Discord'})
@@ -190,4 +175,53 @@ export const voiceChannelOverview = async (req: Request, res: Response) => {
    } catch (error) {
      res.status(400).json({error: error.message})
    }
+}
+
+export const steamLogin = (req: any, res: any) => {
+ 
+}
+
+export const steamCallback = (req: any, res: any) => {
+  if (req.user) {
+
+    const steamId = req.user.id
+
+    const token = createToken(steamId, '3d')
+
+    res.cookie('steamToken', token, { maxAge: 3 * 24 * 60 * 60 * 1000 });
+     
+     res.redirect('http://localhost:5173/dashboard');
+  } else {
+     
+     console.log('Błąd uwierzytelnienia Steam');
+     res.redirect('http://localhost:5173/dashboard');
+  }
+}
+
+export const serverSlOverview = (req: any, res: any) => {
+  try {
+    const token = req.cookies['steamToken']
+    jwt.verify(token, process.env.SECRET, async (error: any) => {
+      if(error) {
+       
+        console.log('Token prawdopodobnie wygasł')
+        return res.json({error: 'Token prawdopodobnie wygasł lub nie połączyłeś konta z Steam'})
+      } else {
+
+        const decodeToken = jwt.decode(token) as JwtPayload
+        const userId = decodeToken._id;
+        console.log('userId ', userId)
+       
+        const serverSlOverview = await ServerSlOverview.find({ '_id': `${userId}@steam` })
+    
+        if (!serverSlOverview) {
+           return res.status(404).json({ error: 'Nie znaleziono użytkownika' });
+       }
+        res.status(200).json(serverSlOverview);
+      }
+    })
+
+  } catch (error) {
+    res.status(400).json({error: error.message})
+  }
 }

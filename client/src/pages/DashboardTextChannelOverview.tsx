@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useEffect, useState } from "react";
-import Chart from 'react-apexcharts';
 import useWindowDimensions from "../hooks/useWindowDimensions";
+
+import { TextChannelMessagesChart, TextChannelOtherChart } from "../charts";
 
 const DashboardTextChannelOverview = () => {
   const { user } = useAuthContext();
@@ -29,57 +30,7 @@ const DashboardTextChannelOverview = () => {
  });
   const [selectedChannel, setSelectedChannel] = useState<any>(null);
 
-  const [chartData, setChartData] = useState({
-    series: [
-      {
-        name: '',
-        data: [],
-      },
-    ],
-    options: {
 
-      plotOptions: {
-        bar: {
-          horizontal: false,
-          columnWidth: '55%',
-          endingShape: 'rounded',
-        },
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      stroke: {
-        show: true,
-        width: 2,
-        colors: ['transparent'],
-      },
-      xaxis: {
-        categories: [],
-      },
-      yaxis: {
-        title: {
-          text: 'Ilość',
-        },
-      },
-      fill: {
-        opacity: 1,
-      },
-      tooltip: {
-        theme: 'dark',
-        y: {
-          formatter: function (val: any) {
-            return  val ;
-          },
-        },
-      },
-      chart: {
-        foreColor: '#ccc',
-        toolbar: {
-          show: false
-        },
-      },
-    },
-  });
 
   useEffect(()=> {
     const fetchServerOverview = async () => {
@@ -93,49 +44,6 @@ const DashboardTextChannelOverview = () => {
         const jsonData = response.data; // one server temp
         
         setTextChannelOverview(jsonData);
-        const categories = selectedChannel?.dailyStats.map((dailyStat: any) => dailyStat.date)
-
-const seriesData = [
-  {
-    name: 'Ilość wysłanych załączników',
-    data: selectedChannel?.dailyStats.map((dailyStat: any) => dailyStat.attachmentCount
-    ),
-  },
-  {
-    name: 'Ilość wysłanych linków',
-    data: selectedChannel?.dailyStats.map((dailyStat: any) => dailyStat.linkCount
-    ),
-  },
-  {
-    name: 'Ilość wysłanych wiadomości',
-    data: selectedChannel?.dailyStats.map((dailyStat: any) => dailyStat.messageCount
-    ),
-  },
-  {
-    name: 'Ilość wysłanych wspomnień ról',
-    data: selectedChannel?.dailyStats.map((dailyStat: any) => dailyStat.roleMentionCount
-    ),
-  },
-  {
-    name: 'Ilość wysłanych naklejek',
-    data: selectedChannel?.dailyStats.map((dailyStat: any) => dailyStat.stickerCount),
-  },
-  {
-    name: 'Ilość wysłanych wspomnień użytkowników',
-    data: selectedChannel?.dailyStats.map((dailyStat: any) => dailyStat.userMentionCount),
-  },
-];
-
-setChartData({
-  ...chartData,
-  options: {
-    ...chartData.options,
-    xaxis: {
-      categories,
-    },
-  },
-  series: seriesData,
-});
       }
     }
     if(user) {
@@ -145,41 +53,17 @@ setChartData({
  }, [selectedChannel])
 
 
-let chartHeight = 300;
-let chartWidth = 300;
-
-if(height > chartHeight){
-if(width > 768) {
-    chartHeight = 400
-} else {
-    
-    if(width > 1000) {
-        chartHeight = 400
-    } else if(width > 1440){
-        chartHeight = 500
-    }
-}
-}
-if(width > chartWidth) {
-  if(width < 768) {
-      chartWidth = width
-  } else {
-      if(width < 1440) {
-      if(width > 1000) {
-          chartWidth = 800
-      } else {
-          chartWidth = 500
-      }
-      } else {
-      chartWidth = 1000
-      }
-  }
-}
+ let chartHeight = 400;
+ if(height > chartHeight){
+   if(width < 420) {
+     chartHeight = 250
+   } 
+ }
 
 return (
-  <div className="text-white flex flex-col  mt-[50px]">
+  <div className='text-white flex flex-col mt-[187px] sm:pl-[275px] lg:pl-[315px] w-full px-6 sm:px-[40px] lg:px-[80px] gap-[33px]'>
     <select
-      className="bg-transparent"
+      className="bg-transparent text-[16px] sm:text-[24px] uppercase font-black w-[300px] mb-[24px]"
       value={selectedChannel?.channelId || ''}
       onChange={(e) => {
         const channelId = e.target.value;
@@ -194,13 +78,24 @@ return (
           key={channel.channelId}
           value={channel.channelId}
         >
-          {channel.channelName}
+          #{channel.channelName}
         </option>
       ))}
     </select>
-    {selectedChannel && (
-      <Chart options={chartData.options} series={chartData.series} type="bar" height={chartHeight} width={chartWidth} />
-    )}
+    {selectedChannel &&
+     (
+      <div className="pb-[30px]">
+        <div>
+          <h2 className="text-[25px] leading-[28px] font-black sm:text-[32px] sm:leading-[32px] lg:text-[40px] lg:leading-[48px] mb-[8px]">Wysłane wiadomości</h2>
+            <TextChannelMessagesChart selectedChannel={selectedChannel} chartHeight={chartHeight} chartWidth={'100%'}/>
+        </div>
+        <div>
+          <h2 className="text-[25px] leading-[28px] font-black sm:text-[32px] sm:leading-[32px] lg:text-[40px] lg:leading-[48px] mb-[8px]">Wysłane załaczniki linki itd.</h2>
+          <TextChannelOtherChart selectedChannel={selectedChannel} chartHeight={chartHeight} chartWidth={'100%'}/>
+        </div>
+      </div>
+
+     )}
   </div>
   );
 }

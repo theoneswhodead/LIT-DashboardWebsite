@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useEffect, useState  } from "react"
-import Chart from 'react-apexcharts'
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import { UserMessagesChart, UserVoiceChart } from "../charts";
 
 interface UserData {
   userId: string;
@@ -47,57 +47,7 @@ const DashboardUserDiscordOverview = () => {
     }
   ] });
 
-  const [chartData, setChartData] = useState({
-    series: [
-      {
-        name: '',
-        data: [],
-      },
-    ],
-    options: {
-
-      plotOptions: {
-        bar: {
-          horizontal: false,
-          columnWidth: '55%',
-          endingShape: 'rounded',
-        },
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      stroke: {
-        show: true,
-        width: 2,
-        colors: ['transparent'],
-      },
-      xaxis: {
-        categories: [],
-      },
-      yaxis: {
-        title: {
-          text: 'Ilość',
-        },
-      },
-      fill: {
-        opacity: 1,
-      },
-      tooltip: {
-        theme: 'dark',
-        y: {
-          formatter: function (val: any) {
-            return  val ;
-          },
-        },
-      },
-      chart: {
-        foreColor: '#ccc',
-        toolbar: {
-          show: false
-        },
-      },
-    },
-  });
+ 
 
  useEffect(()=> {
     const fetchUserOverview = async () => {
@@ -112,50 +62,7 @@ const DashboardUserDiscordOverview = () => {
         
         setUserOverview(jsonData);
 
-        const categories = jsonData.dailyStats.map((dailyStat: any) => dailyStat.date);
-      const seriesData = [
-        {
-          name: 'Ilość wysłanych wiadomości',
-          data: jsonData.dailyStats.map((dailyStat: any) => dailyStat.messageCount),
-        },
-        {
-          name: 'Ilość wysłanych załączników',
-          data: jsonData.dailyStats.map((dailyStat: any) => dailyStat.attachmentCount),
-        },
-        {
-          name: 'Ilość wysłanych naklejek',
-          data: jsonData.dailyStats.map((dailyStat: any) => dailyStat.stickerCount),
-        },
-        {
-          name: 'Ilość wysłanych linków',
-          data: jsonData.dailyStats.map((dailyStat: any) => dailyStat.linkCount),
-        },
-        {
-          name: 'Ilość wysłanych wspomnień użytkowników',
-          data: jsonData.dailyStats.map((dailyStat: any) => dailyStat.userMentionCount),
-        },
-        {
-          name: 'Ilość wysłanych wspomnień ról',
-          data: jsonData.dailyStats.map((dailyStat: any) => dailyStat.roleMentionCount),
-        },
-        {
-          name: 'Czas spędzony na kanałach głosowych (min)',
-          data: jsonData.dailyStats.map((dailyStat: any) => dailyStat.voiceChannelMinutes),
-        },
-      ];
 
-      setChartData({
-        ...chartData,
-        options: {
-          ...chartData.options,
-          xaxis: {
-            categories,
-          },
-        },
-        series: seriesData,
-      });
-    
-  
       }
     }
     if(user) {
@@ -164,59 +71,37 @@ const DashboardUserDiscordOverview = () => {
     }
  }, [])
   
- console.log(userOverview)
 
- let chartHeight = 300;
- let chartWidth = 300;
-
+ let chartHeight = 400;
  if(height > chartHeight){
-  if(width > 768) {
-    chartHeight = 400
-  } else {
-    
-      if(width > 1000) {
-        chartHeight = 400
-      } else if(width > 1440){
-        chartHeight = 500
-      }
-  }
- }
- if(width > chartWidth) {
-  if(width < 768) {
-    chartWidth = width
-  } else {
-    if(width < 1440) {
-      if(width > 1000) {
-        chartWidth = 800
-      } else {
-        chartWidth = 500
-      }
-    } else {
-      chartWidth = 1000
-    }
-  }
- }
+   if(width < 420) {
+     chartHeight = 250
+   } 
+ } 
 
 
   return (
-    <div className='text-white flex flex-col lg:flex-row mt-[50px]'>
-       <Chart options={chartData.options} series={chartData.series} type="bar" height={chartHeight} width={chartWidth} />
-
-     
-
+    <div className='text-white flex flex-col mt-[187px] sm:pl-[275px] lg:pl-[315px] w-full px-6 sm:px-[40px] lg:px-[80px] gap-[33px] '>
 
     <div className="border p-6">
-    <p>User ID: {userOverview.userId}</p>
-    <p>User Name: {userOverview.userName}</p>
-    <p>Daily Stats:</p>
-    <div>
-    
-       <p>XP Count: {userOverview.dailyStats[userOverview.dailyStats.length - 1].xpCount}</p>
-       <p>Level Count: {userOverview.dailyStats[userOverview.dailyStats.length - 1].levelCount}</p>
-       <p>Balance: {userOverview.dailyStats[userOverview.dailyStats.length - 1].balance}</p>
-       <p>Warn Count: {userOverview.dailyStats[userOverview.dailyStats.length - 1].warnCount}</p>
+      <p>User ID: <span className=" text-dark_red">{userOverview.userId}</span></p>
+      <p>User Name: <span className=" text-dark_red uppercase">{userOverview.userName}</span></p>
+      <div>
+        <p>XP Count: <span className=" text-dark_red">{userOverview.dailyStats[userOverview.dailyStats.length - 1].xpCount}</span></p>
+        <p>Level Count: <span className=" text-dark_red">{userOverview.dailyStats[userOverview.dailyStats.length - 1].levelCount}</span></p>
+        <p>Balance: <span className=" text-dark_red">{userOverview.dailyStats[userOverview.dailyStats.length - 1].balance}</span></p>
+        <p>Warn Count: <span className=" text-dark_red">{userOverview.dailyStats[userOverview.dailyStats.length - 1].warnCount}</span></p>
+      </div>
     </div>
 
+    <div>
+        <h2 className="text-[25px] leading-[28px] font-black sm:text-[32px] sm:leading-[32px] lg:text-[40px] lg:leading-[48px] mb-[8px]">Ilość wiadomości</h2>
+        <UserMessagesChart userOverview={userOverview} chartHeight={width < 420 ? 350 : 400} chartWidth={'100%'}/>
+    </div>
+
+    <div>
+        <h2 className="text-[25px] leading-[28px] font-black sm:text-[32px] sm:leading-[32px] lg:text-[40px] lg:leading-[48px] mb-[8px]">Czas na kanałach głosowych</h2>
+        <UserVoiceChart userOverview={userOverview} chartHeight={chartHeight} chartWidth={'100%'}/>
     </div>
     
   </div>

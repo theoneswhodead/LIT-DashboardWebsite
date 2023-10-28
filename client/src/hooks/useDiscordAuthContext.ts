@@ -8,7 +8,6 @@ type DiscordAuthContextType = {
 
 export const useDiscordAuthContext = (): DiscordAuthContextType => {
   const context = useContext(DiscordAuthContext);
-  console.log('useDiscordAuthContext')
 
   if (!context) {
     throw new Error('DiscordAuthContext nie istnieje');

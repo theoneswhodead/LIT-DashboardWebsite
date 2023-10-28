@@ -13,7 +13,7 @@ declare global {
 const requireAuth = async (req: Request, res: Response, next: NextFunction) => {
   const { authorization } = req.headers;
 
-  console.log(authorization)
+  console.log(req.headers)
 
   if (!authorization) {
     return res.status(401).json({ error: 'Wymagany token uwierzytelniający' });
@@ -21,8 +21,10 @@ const requireAuth = async (req: Request, res: Response, next: NextFunction) => {
 
   const token = authorization.split(' ')[1];
 
+
   try {
-    const { _id } = jwt.verify(token, process.env.SECRET) as { _id: string };
+
+   const { _id } = jwt.verify(token, process.env.SECRET) as { _id: string };
 
     const user: UserDoc | null = await User.findOne({ _id }).select('_id');
 

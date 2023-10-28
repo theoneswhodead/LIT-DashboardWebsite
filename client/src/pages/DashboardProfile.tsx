@@ -2,6 +2,8 @@ import { useState, FormEvent, useEffect } from 'react'
 import { useUpdateCredentials } from '../hooks/useUpdateCredentials'
 import { useDiscordAuthContext } from '../hooks/useDiscordAuthContext'
 import { useDiscordLogout } from '../hooks/useDiscordLogout'
+import { useSteamAuthContext } from '../hooks/useSteamAuthContext'
+import { useSteamLogout } from '../hooks/useSteamLogout'
 
 const DashboardProfile = () => {
 
@@ -14,10 +16,16 @@ const DashboardProfile = () => {
     const { discordUser } = useDiscordAuthContext()
     const { discordLogout } = useDiscordLogout();
 
+    const { steamUser } = useSteamAuthContext()
+    const { steamLogout } = useSteamLogout();
+
+
     const handleDiscord = () => {
       discordLogout()
     }
-     const [steamSignin, setSteamSignin] = useState(false); //temp
+    const handleSteam = () => {
+      steamLogout()
+    }
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
@@ -26,7 +34,7 @@ const DashboardProfile = () => {
   }
   return (
     
-        <div className='text-white mt-[60px] flex flex-col  md:flex-row gap-[33px]'>
+        <div className='text-white  flex flex-col  md:flex-row gap-[33px] mt-[50px] sm:pl-[275px] lg:pl-[315px]'>
             <div className='flex flex-col sm:w-[350px] lg:w-[500px]  gradient__card rounded-3xl m-6 sm:m-[40px] sm:mr-0 lg:m-[80px] lg:mr-0 p-6 pb-[80px] sm:p-[40px] sm:pb-[80px] lg:p-[80px]'>
              <h2 className='text-white uppercase text-[24px] mb-[32px]'>Ustawienia <span className='text-dark_red '>Profilu</span></h2>
 
@@ -74,30 +82,33 @@ const DashboardProfile = () => {
                 <h2 className='text-white uppercase text-[24px] mb-[32px]'>Połącz <span className='text-dark_red '>Konta</span></h2>
             {
               discordUser
-              ?  <div className="flex items-center py-2 px-4 rounded-lg bg-[#5865F2] hover:bg-[#5865F2]/80 hover:text-white/80 transition-colors duration-300 mb-[24px]" onClick={handleDiscord}>
-              <img src="../../assets/discord-icon.svg" alt="" className="h-7 w-7 mr-4"/>
-              <span className="text-sm">Połączono, rozłącz</span>
+              ? 
+              <div className="flex items-center py-2 px-4 rounded-lg bg-[#5865F2] hover:bg-[#5865F2]/80 hover:text-white/80 transition-colors duration-300 mb-[24px] cursor-pointer" onClick={handleDiscord}>
+                <img src="../../assets/discord-icon.svg" alt="" className="h-7 w-7 mr-4"/>
+                <span className="text-sm">Rozłącz Discord</span>
              </div>
              :
-             <a className="flex items-center py-2 px-4 rounded-lg bg-[#5865F2] hover:bg-[#5865F2]/80 hover:text-white/80 transition-colors duration-300 mb-[24px]"
-             href="http://localhost:5000/dashboard/auth/discord/login">
-             <img src="../../assets/discord-icon.svg" alt="" className="h-7 w-7 mr-4"/>
-             <span className="text-sm">Połącz konto Discord</span>
+             <a className="flex items-center py-2 px-4 rounded-lg bg-[#5865F2] hover:bg-[#5865F2]/80 hover:text-white/80 transition-colors duration-300 mb-[24px] cursor-pointer"
+             href="https://discord.com/api/oauth2/authorize?client_id=1153269554210951208&redirect_uri=http%3A%2F%2Flocalhost%3A5000%2Fdashboard%2Fauth%2Fdiscord%2Fcallback&response_type=code&scope=identify">
+              <img src="../../assets/discord-icon.svg" alt="" className="h-7 w-7 mr-4"/>
+              <span className="text-sm">Połącz Discord</span>
             </a>
             }
 
 {
-              steamSignin
-              ?  <div className="flex items-center py-2 px-4 rounded-lg bg-[#2a475e] hover:bg-[#1b2838]/80 hover:text-white/80 transition-colors duration-300 mb-[24px]">
-             <img src="../../assets/steam-icon.svg" alt="" className="h-7 w-7 mr-4"/>
-              <span className="text-sm">Połączono</span>
+              steamUser
+              ?  
+              <div className="flex items-center py-2 px-4 rounded-lg bg-[#2a475e] hover:bg-[#1b2838]/80 hover:text-white/80 transition-colors duration-300 mb-[24px] cursor-pointer" onClick={handleSteam}>
+                <img src="../../assets/steam-icon.svg" alt="" className="h-7 w-7 mr-4"/>
+                <span className="text-sm cursor-pointer">Rozłącz Steam</span>
              </div>
              :
-             <a className="flex items-center py-2 px-4 rounded-lg bg-[#2a475e] hover:bg-[#1b2838]/80 hover:text-white/80 transition-colors duration-300 mb-[24px]"
-             href="http://localhost:5000/dashboard/auth/discord/login">
+             <a className="flex items-center py-2 px-4 rounded-lg bg-[#2a475e] hover:bg-[#1b2838]/80 hover:text-white/80 transition-colors duration-300 mb-[24px] cursor-pointer"
+               href='http://localhost:5000/dashboard/auth/steam'>
+
              
              <img src="../../assets/steam-icon.svg" alt="" className="h-7 w-7 mr-4"/>
-             <span className="text-sm">Połącz konto Steam</span>
+             <span className="text-sm">Połącz Steam</span>
             </a>
             }
             
