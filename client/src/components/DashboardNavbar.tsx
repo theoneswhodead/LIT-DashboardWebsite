@@ -27,15 +27,16 @@ const MobileSidebar = () => {
   )
 }
   return (
-    <div className='flex fixed justify-between items-center p-6 sm:p-[40px] lg:px-[80px] w-full bg-almost_black z-20'>
+    <div className='flex fixed justify-between items-center p-6 sm:p-[0px] lg:px-[80px]  w-full bg-almost_black z-20'>
       <MobileSidebar  />
-      <div className='w-[110px] lg:w-[210px]'>
+      <div className='w-[110px] lg:w-[210px] sm:my-[20px] sm:mx-[40px] lg:m-0'>
         <NavLink to="/">
-            <p className='text-white font-barlow_condensed uppercase border-[1px] p-2 border-white lg:text-[32px] '>Lux In <span className='text-dark_red'>Tenebris</span></p>
+            {/* <p className='text-white font-barlow_condensed uppercase border-[1px] p-2 border-white lg:text-[32px] '>Lux In <span className='text-dark_red'>Tenebris</span></p> */}
+            <img src="../../assets/logo/LIT.png" alt="Lux In Tenebris" />
         </NavLink>
         </div>
 
-        <div className='flex  items-center reflect sm:text-[16px]'>
+        <div className='flex  items-center reflect sm:text-[16px] sm:my-[40px] sm:mx-[40px] lg:m-0'>
 
           <NavLink to="/dashboard/profile" className="flex items-center gap-[8px]">
             <img src="../../assets/user.png" alt="avatar" className='w-[50px] h-[50px]'/>

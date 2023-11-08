@@ -5,6 +5,7 @@ import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
+import { Link as ScrollLink } from 'react-scroll';
 
 const Navbar = () => {
 
@@ -18,20 +19,20 @@ const Navbar = () => {
 
 
   return (
-    <div className='flex justify-between p-6 sm:p-[40px] lg:px-[80px] '>
-        <div className='w-[110px] lg:w-[210px] '>
+    <div className='flex justify-between p-6 sm:p-[0px] lg:px-[80px] items-center'>
+        <div className='w-[110px] lg:w-[210px] sm:my-[20px] sm:mx-[40px] lg:m-0'>
             <NavLink to="/"> 
-              <p className='text-white font-barlow_condensed uppercase border-[1px] p-2 border-white lg:text-[32px]'>Lux In <span className='text-dark_red'>Tenebris</span></p>
+              <img src="../../assets/logo/LIT.png" alt="Lux In Tenebris" />
             </NavLink>
         </div>
         <div className='text-white sm:flex w-[550px] items-center justify-between hidden'>
-            <nav className='flex gap-[33px] sm:text-[16px]'>
-                <NavLink to="#what" className="hover:text-dark_red hover_animate tracking-wide ">Co nowego</NavLink>
-                <NavLink to="#about" className="hover:text-dark_red hover_animate tracking-wide">O nas</NavLink>
-                <NavLink to="#history" className="hover:text-dark_red hover_animate tracking-wide">Historia</NavLink>
-            </nav>
+        <nav className='flex gap-[33px] sm:text-[16px]'>
+            <ScrollLink to="news" smooth={true} duration={500} className="hover:text-dark_red hover_animate tracking-wide cursor-pointer">Co nowego</ScrollLink>
+            <ScrollLink to="about" smooth={true} duration={500} className="hover:text-dark_red hover_animate tracking-wide cursor-pointer">O nas</ScrollLink>
+            <ScrollLink to="history" smooth={true} duration={500} className="hover:text-dark_red hover_animate tracking-wide cursor-pointer">Historia</ScrollLink>
+        </nav>
 
-            <div className='flex items-center reflect text-[16px] gap-[33px]'>
+            <div className='flex items-center reflect text-[16px] gap-[33px] sm:my-[40px] sm:mx-[40px] lg:m-0'>
             {
                         user ? (
                             <div className='flex gap-[8px] hover_animate'>
@@ -55,10 +56,9 @@ const Navbar = () => {
         {
             toggleMenu && 
             <nav className='text-white text-[16px] flex flex-col absolute bg-dark_opacity inset-0 top-[89px] backdrop-blur-[70px] left-1/3 gap-[33px] p-6 sm:hidden z-10'>
-                <NavLink to="#what" className="hover:text-dark_red hover_animate tracking-wide">Co nowego</NavLink>
-                <NavLink to="#about" className="hover:text-dark_red hover_animate tracking-wide">O nas</NavLink>
-                <NavLink to="#history" className="hover:text-dark_red hover_animate tracking-wide">Historia</NavLink>
-                <NavLink to="/login" className="hover_animate">Zaloguj <span className='text-dark_red inline-block font-bold '>Się</span></NavLink>
+                <ScrollLink to="news" smooth={true} duration={500} className="hover:text-dark_red hover_animate tracking-wide cursor-pointer">Co nowego</ScrollLink>
+                <ScrollLink to="about" smooth={true} duration={500} className="hover:text-dark_red hover_animate tracking-wide cursor-pointer">O nas</ScrollLink>
+                <ScrollLink to="history" smooth={true} duration={500} className="hover:text-dark_red hover_animate tracking-wide cursor-pointer">Historia</ScrollLink>
             </nav>
         }
         </div>

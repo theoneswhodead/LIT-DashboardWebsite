@@ -16,7 +16,7 @@ const Header = () => {
       <div className='sm:flex-1 sm:flex justify-end mt-[120px] ss:mt-[120px] ss:m-auto sm:mt-0 reflect '>
           <img src="../../assets/world_map500.png" alt="World Map" />
       </div>
-
+  
 </section>
   )
 }

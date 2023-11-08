@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ img, name, text }) => {
 
 const AboutUs = () => {
   return (
-    <section className='lg:h-[100vh] bg-almost_black px-6 sm:p-[40px] lg:p-[80px] lg:pl-[0] pt-[80px] lg:pt-0'>
+    <section id="about" className='lg:h-[100vh] bg-almost_black px-6 sm:p-[40px] lg:p-[80px] lg:pl-[0] pt-[80px] lg:pt-0'>
       <div className='flex flex-col lg:flex-row  lg:relative'>
         <img src="../../assets/grafiki/173.png" alt="" className='lg:w-[500px] lg:h-[500px] lg:absolute lg:right-[50px] lg:bottom-1/2 lg:translate-y-1/2 '/>
 

@@ -1,6 +1,6 @@
 const OldProjects = () => {
   return (
-    <section className='lg:h-[100vh] bg-blue'>
+    <section id="history" className='lg:h-[100vh] bg-blue'>
       
     </section>
   )
