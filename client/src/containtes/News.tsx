@@ -123,7 +123,6 @@ const News = () => {
           <video autoPlay loop muted className="h-full w-full">
             <source src="../../assets/bgvideo.mp4" type="video/mp4" />
               Twoja przeglądarka nie wspiera Video
-            
           </video>
         </div>
 
