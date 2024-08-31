@@ -9,7 +9,6 @@ const userSlWalletsSchema = new mongoose.Schema({
     _id: String,
     nickname: String,
     ignoreDNT: Boolean,
-    // dntEnabled: Boolean, // should be?
     toggleHint: Boolean,
     wallet: numDef
 
