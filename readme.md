@@ -52,5 +52,4 @@
 - 8. Once the POST request is received on the server, the received code and password are validated.
 - 9. If both values are previous the enable2fa field is changed to true - Verification has been enabled.
 - 10. When trying to log in, an analogous verification occurs.
-    
 
