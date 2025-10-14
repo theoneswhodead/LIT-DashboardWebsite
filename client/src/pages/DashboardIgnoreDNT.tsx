@@ -91,7 +91,7 @@ const DashboardIgnoreDNT = () => {
                   <div className=' sm:w-5/5 flex flex-col gap-[33px]'>
                     <div >
                       <div className='flex flex-col gap-[33px] ss:flex-row justify-between pb-[33px] xs:pb-0'>
-                        <h3 className='font-roboto text-[24px] leading-[32px] font-black' >Udziel zgody na zarabianie NymCoin™</h3>
+                        <h3 className='font-roboto text-[24px] leading-[32px] font-black' >Udziel zgody na zarabianie Coinów™</h3>
                         <button className='font-roboto hover__text__yellow border_gold p-4' onClick={() => handleClick('userSlWallets')}>{userSlWallets ? 'Anuluj zgodę': 'Udziel zgody'}</button>
                       </div>
                       

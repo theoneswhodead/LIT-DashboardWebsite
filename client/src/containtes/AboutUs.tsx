@@ -8,7 +8,7 @@ interface CardProps {
 const menagement = [
   {img: '../../Public/user.png', name: 'Admin', text: 'Cześć, miło mi Cię poznać, odpowiadam za sekcję discord naszego serwera, mam nadzieję że fajnie spędzisz u Nas czas!'},
   {img: '../../Public/user.png', name: 'Admin', text: 'Od najmłodszych lat interesowało mnie prowadzenie serwerów gier. Wydaje mi się, że właśnie ta pasja skłoniła mnie by założyć GoldenLeague.'},
-  {img: '../../Public/user.png', name: 'Admin', text: 'Od zawsze lubiłem gry, tutaj poszerzam swoją pasję do nich'}
+  {img: '../../Public/user.png', name: 'Admin', text: 'Od zawsze lubiłem gry, tutaj poszerzam swoją pasję do nich.'}
 ]
 
 const Card: React.FC<CardProps> = ({ img, name, text }) => {
@@ -34,11 +34,11 @@ const AboutUs = () => {
           <h2 className='font-barlow_condensed text-[40px] uppercase font-black leading-[40px] sm:text-[48px] sm:leading-[48px] lg:text-[72px] lg:leading-[72px] mb-[24px]'>GoldenLeague</h2>
 
           <p className='font-roboto text-[24px] leading-[32px] md:w-[500px] lg:w-[700px] xl:w-[1000px] pt-[24px] sp:mb-[40px] border-t-[1px]  border-opacity-25 border-black'>
-          Jesteśmy jedną z najstarszych sieci serwerów w Polsce prowadzących swoje serwery. Nasze serwery, były dostępne już od 2018r. Nie skupiamy się wyłącznie na jednej grze, od czasu do czasu otwieramy serwery w różnch grach, takich jak Minecraft, Unturned, Battlefield czy G-mod. Ponadto, prowadzimy również serwer Discord, który jest centralnym punktem dla społeczności naszych graczy. Na tym serwerze organizujemy okazjonalne wydarzenia z różnymi nagrodami.</p>
+          Jesteśmy jedną z najstarszych sieci serwerów w Polsce prowadzących swoje serwery. Nasze serwery, były dostępne już od 2016r. Nie skupiamy się wyłącznie na jednej grze, od czasu do czasu otwieramy serwery w różnch grach, takich jak Minecraft, Unturned, Battlefield czy G-mod. Ponadto, prowadzimy również serwer Discord, który jest centralnym punktem dla społeczności naszych graczy. Na tym serwerze organizujemy okazjonalne wydarzenia z różnymi nagrodami.</p>
         </div>
       </div>
 
-      <h2 className='font-barlow_condensed text-white p-6 sm:px-[40px] lg:px-[80px] lg:mt-[80px] sm:my-[40px] font-black text-[28px] leading-[28px] sm:text-[32px] sm:leading-[48px] lg:text-[40px] lg:leading-[28px]'>Zarząd <span className="gradient__text">GoldenLeague</span></h2>
+      <h2 className='font-barlow_condensed text-white p-6 sm:px-[40px] lg:px-[80px] lg:mt-[80px] sm:my-[40px] font-black text-[28px] leading-[28px] sm:text-[32px] sm:leading-[48px] lg:text-[40px] lg:leading-[28px]'>Władze <span className="gradient__text">GoldenLeague</span></h2>
       <div className='flex flex-col sm:flex-row lg:justify-center lg:mt-[2menagement_barpx] lg:mb-[80px] sm:mb-[40px]'>
         
         {

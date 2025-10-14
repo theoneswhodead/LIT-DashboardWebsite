@@ -21,7 +21,7 @@ const Footer = () => {
           </a>
           
       </div>
-      <p className='font-barlow_condensed text-white p-6 text-center sm:px-[40px] lg:px-[80px] text-[12px] leading-[12px] sm:text-[14px] sm:leading-[14px] lg:text-[16px] lg:leading-[28px]'>&copy; 2024 GoldenLeague. Wszystkie prawa zastrzeżone. </p>
+      <p className='font-barlow_condensed text-white p-6 text-center sm:px-[40px] lg:px-[80px] text-[12px] leading-[12px] sm:text-[14px] sm:leading-[14px] lg:text-[16px] lg:leading-[28px]'>&copy; 2025 GoldenLeague. Wszystkie prawa zastrzeżone. </p>
 
     </div>
   )

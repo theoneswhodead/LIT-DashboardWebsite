@@ -40,52 +40,52 @@ const OldProjects = () => {
       >
 
         <div className='cursor-pointer text-white select-none'>
-            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black sm:text-[32px] px-6'>22.06.2018</h3>
+            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black sm:text-[32px] px-6'>22.06.2015</h3>
             <div className='w-full border_gold my-6'></div>
             <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Założenie Serwera</h3>
             <p className='px-6'>W tym dniu zaczęła się pewna legenda...</p>
         </div>
         <div className='cursor-pointer text-white select-none'>
-            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black sm:text-[32px] px-6'>24.08.2018</h3>
+            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black sm:text-[32px] px-6'>24.08.2015</h3>
             <div className='w-full border_gold my-6'></div>
-            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>I Ty możesz zostać moderatorem GoldenLeague!</h3>
+            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Pierwsza Rekrutacja</h3>
             <p className='px-6'>Pierwsza rekrutacja na stanowiska Moderatorów, wyłonione wtedy osoby na zawsze zmieniły bieg historii serwera</p>
         </div>
         <div className='cursor-pointer text-white select-none'>
-            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>07.10.2018</h3>
+            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>07.10.2016</h3>
             <div className='w-full border_gold my-6'></div>
-            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Ogłoszenie Konstytucji GoldenLeague</h3>
+            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Ogłoszenie Nowergo Regulaminu</h3>
             <p className='px-6'>Każdy dostał swoje prawa, jak i obowiązki</p>
         </div>
         <div className='cursor-pointer text-white select-none'>
-            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>30.10.2018</h3>
+            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>30.10.2017</h3>
             <div className='w-full border_gold my-6'></div>
-            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Sojusz z S</h3>
+            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Przygotowania</h3>
             <p className='px-6'>Nadszedł czas miecza i topora, w tym momęcie wojna była już kwestią godzin.</p>
         </div>
         <div className='cursor-pointer text-white select-none'>
-            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>30.10.2018</h3>
+            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>30.10.2017</h3>
             <div className='w-full border_gold my-6'></div>
             <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Bunt i odejście Administracji</h3>
             <p className='px-6'>Nastąpiła wojna domowa w administracji po zawarciu Sojuszu z s</p>
         </div>
         <div className='cursor-pointer text-white select-none'>
-            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>07.11.2018</h3>
+            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>07.11.2017</h3>
             <div className='w-full border_gold my-6'></div>
-            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Święta wojna z S</h3>
+            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Święta wojna</h3>
             <p className='px-6'>Niezadowolona społeczność GL wszczyna wojnę przeciwko Somsiadowni, trwa ofensywa na</p>
         </div>
         <div className='cursor-pointer text-white select-none'>
             <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>12.11.2018</h3>
             <div className='w-full border_gold my-6'></div>
-            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Nowy start serwera, banicja osób z Somsiadowni</h3>
-            <p className='px-6'>Zarząd powrócił na serwer, a w celu uspokojenia społeczności została przeprowadzona czystka.</p>
+            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Nowy start serwera, banicja osób</h3>
+            <p className='px-6'>Powróciły władze serwera, a w celu uspokojenia społeczności została przeprowadzona czystka.</p>
         </div>
         <div className='cursor-pointer text-white select-none'>
             <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>1.12.2018</h3>
             <div className='w-full border_gold my-6'></div>
-            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Pierwsza edycja Jakiej To Melodii</h3>
-            <p className='px-6'>Sapper przeprowadził jeden z najwiekszych eventów na Discordzie GL</p>
+            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Pierwsza edycja Eventów</h3>
+            <p className='px-6'>Sapper przeprowadził jeden z najwiekszych eventów na Discordzie</p>
         </div>
         <div className='cursor-pointer text-white select-none'>
             <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>26.01.2019</h3>
@@ -109,13 +109,13 @@ const OldProjects = () => {
             <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>24.04.2020</h3>
             <div className='w-full border_gold my-6'></div>
             <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Nieoficjalny serwer Minecraft</h3>
-            <p className='px-6'>Jedna z lepszych edycji serwerów Minecraft, stworzona przez honkadaloonga aka Janek</p>
+            <p className='px-6'>Jedna z lepszych edycji serwerów Minecraft</p>
         </div>
         <div className='cursor-pointer text-white select-none'>
             <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>22.08.2020</h3>
             <div className='w-full border_gold my-6'></div>
             <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Zwiastun kanału Youtube</h3>
-            <p className='px-6'>Pierwszy filmik na kanale GoldenLeague opisujący historię serwera</p>
+            <p className='px-6'>Pierwszy filmik na kanale GoldenLeague</p>
         </div>
         <div className='cursor-pointer text-white select-none'>
             <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>17.02.2021</h3>
@@ -135,88 +135,9 @@ const OldProjects = () => {
             <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Widmo kolejnej wojny załagodzone</h3>
             <p className='px-6'>Napięcia na linii GoldenLeague - Hipermonia, zostały załagodzone, zawarty został układ o przyjacielskich stosunkach</p>
         </div>
-        <div className='cursor-pointer text-white select-none'>
-            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>08.08.2021</h3>
-            <div className='w-full border_gold my-6'></div>
-            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Kim jesteśmy? Dokąd zmierzamy?</h3>
-            <p className='px-6'>Zebranie społeczności w celu przedyskutowania dalszego działania serwera</p>
-        </div>
-        <div className='cursor-pointer text-white select-none'>
-            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>22.08.2021</h3>
-            <div className='w-full border_gold my-6'></div>
-            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Jeszcze jedna edycja serwera w Minecraft</h3>
-            <p className='px-6'>Całkiem udana edycja, z przepięknym spawnem w średniowiecznym stylu</p>
-        </div>
-        <div className='cursor-pointer text-white select-none'>
-            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>04.02.2022</h3>
-            <div className='w-full border_gold my-6'></div>
-            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Informacja o Zamknięciu Serwerów</h3>
-            <p className='px-6'>Nic nie może trwać wiecznie... 07.02.2022 serwery GoldenLeague  po praktycznie 4 latach zostały zamknięte... jak się wtedy wydawało na zawsze, a serwer discordowy przeszedł w stan stagnacji</p>
-        </div>
-        <div className='cursor-pointer text-white select-none'>
-            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>22.06.2022</h3>
-            <div className='w-full border_gold my-6'></div>
-            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Coś się kończy coś się zaczyna</h3>
-            <p className='px-6'>Dokładnie po 4 latach działalności, serwer GoldenLeaguez ostał oficjalnie zamknięty</p>
-        </div>
-        <div className='cursor-pointer text-white select-none'>
-            <h3 className='font-barlow_condensed text-[24px] leading-[32px] font-black px-6'>03.11.2023</h3>
-            <div className='w-full border_gold my-6'></div>
-            <h3 className='text-[24px] font-roboto leading-[32px] font-black pb-[8px] px-6'>Powró<textarea name="" id="" rows="10"></textarea></h3>
-            <p className='px-6'>Po prawie dwu letniej przerwie GoldenLeague powrócił, a czy czeka go świetlana przyszłość, tego przekonamy się wkrótce</p>
-        </div>
           
       </Carousel>
     </div>
-      
-
-      {/* <Carousel
-        swipeable={false}
-        draggable={true}
-        responsive={responsive}
-        ssr={false} 
-        infinite={true}
-        keyBoardControl={true}
-        customTransition="all 1s"
-        transitionDuration={500}
-        containerClass="carousel-container"
-        itemClass="carousel-item-padding-40-px"
-      >
-        <div className='cursor-pointer h-[300px] '>
-          <img src="../../assets/history/20180816203808_1.jpg" alt="" className='cursor-pointer  pointer-events-none'/>
-        </div>
-        <div className='cursor-pointer h-[300px] '>
-          <img src="../../assets/history/2qgapx.jpg" alt="" className='cursor-pointer  pointer-events-none'/>
-        </div>
-        <div className='cursor-pointer h-[300px] '>
-          <img src="../../assets/history/3ms7sp.jpg" alt="" className='cursor-pointer  pointer-events-none'/>
-        </div>
-        <div className='cursor-pointer h-[300px] '>
-          <img src="../../assets/history/a.png" alt="" className='cursor-pointer  pointer-events-none'/>
-        </div>
-        <div className='cursor-pointer h-[300px] '>
-          <img src="../../assets/history/aa.png" alt="" className='cursor-pointer  pointer-events-none'/>
-        </div>
-        <div className='cursor-pointer h-[300px] '>
-          <img src="../../assets/history/assadsad.png" alt="" className='cursor-pointer  pointer-events-none'/>
-        </div>
-        <div className='cursor-pointer h-[300px] '>
-          <img src="../../assets/history/b.png" alt="" className='cursor-pointer  pointer-events-none'/>
-        </div>
-        <div className='cursor-pointer h-[300px] '>
-          <img src="../../assets/history/BeASDz tytułu.png" alt="" className='cursor-pointer  pointer-events-none'/>
-        </div>
-        <div className='cursor-pointer h-[300px] '>
-          <img src="../../assets/history/Bez tytuasdasdsadłu — kopia.png" alt="" className='cursor-pointer  pointer-events-none'/>
-        </div>
-        <div className='cursor-pointer h-[300px] '>
-          <img src="../../assets/history/Bez tytułu.png" alt="" className='cursor-pointer  pointer-events-none'/>
-        </div>
-        <div className='cursor-pointer h-[300px] '>
-          <img src="../../assets/history/bruh_3_edit.png" alt="" className='cursor-pointer  pointer-events-none'/>
-        </div>
-
-      </Carousel> */}
     </section>
   )
 }
