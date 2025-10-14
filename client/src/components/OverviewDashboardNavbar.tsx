@@ -22,7 +22,7 @@ const OverviewDashboardNavbar = () => {
                 'tracking-wide gold_bar px-6 py-3 hover__text__yellow')}>SCP:SL</NavLink>
               <NavLink to="/dashboard/overview/wallets-sl" className={({ isActive }) => (isActive ?
                 'tracking-wide  gold_bar px-6 py-3 gradient__gold hover__text__yellow' :
-                'tracking-wide gold_bar px-6 py-3 hover__text__yellow')}>NymCoin™</NavLink>
+                'tracking-wide gold_bar px-6 py-3 hover__text__yellow')}>Coiny™</NavLink>
               {/* <NavLink to="/dashboard/overview/classes-sl" className={({ isActive }) => (isActive ?
                 'tracking-wide  gold_bar px-6 py-3 gradient__gold hover__text__yellow' :
                 'tracking-wide gold_bar px-6 py-3 hover__text__yellow')}>Klasy</NavLink> */}

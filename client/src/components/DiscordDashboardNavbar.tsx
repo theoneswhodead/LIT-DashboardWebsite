@@ -15,7 +15,7 @@ const DiscordDashboardNavbar = () => {
                 'tracking-wide gold_bar px-6 py-3 hover__text__yellow ')}>{user.username}</NavLink>
               <NavLink to="/dashboard/discord/server" className={({ isActive }) => (isActive ?
                 'tracking-wide gold_bar px-6 py-3 gradient__gold hover__text__yellow' :
-                'tracking-wide gold_bar px-6 py-3 hover__text__yellow ')}>GoldLegends</NavLink>
+                'tracking-wide gold_bar px-6 py-3 hover__text__yellow ')}>GoldenLeague</NavLink>
               <NavLink to="/dashboard/discord/text" className={({ isActive }) => (isActive ?
                 'tracking-wide gold_bar px-6 py-3 gradient__gold hover__text__yellow' :
                 'tracking-wide gold_bar px-6 py-3 hover__text__yellow ')}>Kanały tekstowe</NavLink>

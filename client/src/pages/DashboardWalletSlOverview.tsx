@@ -66,9 +66,9 @@ const [errorMessage, setErrorMessage] = useState('');
           <h2 className="text-[28px] leading-[28px] font-black font-roboto sm:text-[32px] sm:leading-[48px] lg:text-[40px]">Twój Portfel</h2>
           <div className='flex flex-col xs:flex-row gap-[16px] xs:gap-0 justify-between'>
                   <div className=''>
-                    <h3 className='font-roboto text-[24px] leading-[32px] font-black'>Ilość NymCoin™</h3>
+                    <h3 className='font-roboto text-[24px] leading-[32px] font-black'>Ilość Coinów™</h3>
                     <div className='flex gap-[16px]'>
-                      <p className='font-roboto gradient__text__yellow leading-[25px] lg:leading-[26px]'>{usersSlWalltesOverview.wallet} N¢™</p>
+                      <p className='font-roboto gradient__text__yellow leading-[25px] lg:leading-[26px]'>{usersSlWalltesOverview.wallet} C¢™</p>
                     </div>
                   </div>
                 </div>
@@ -77,34 +77,34 @@ const [errorMessage, setErrorMessage] = useState('');
             <h3 className='font-roboto text-[24px] leading-[32px] font-black pb-[33px]'>Lista przedmiotów dostępnych w sklepie</h3>
             <div className="flex flex-col sm:flex-row gap-[33px]">
               <div>
-                <p>Karta Dozorcy: <span className="gradient__text__yellow">500</span> NymCoin™</p>
-                <p>Karta Naukowca: <span className="gradient__text__yellow">700</span> NymCoin™</p>
-                <p>Karta Strefy: <span className="gradient__text__yellow">1000</span> NymCoin™</p>
-                <p>Karta Ochrony: <span className="gradient__text__yellow">2000</span> NymCoin™</p>
-                <p>Karta Kapitana: <span className="gradient__text__yellow">3000</span> NymCoin™</p>
-                <p>Karta Administratora: <span className="gradient__text__yellow">4000</span> NymCoin™</p>
-                <p>Karta O5: <span className="gradient__text__yellow">5000</span> NymCoin™</p>
-                <p>Apteczka: <span className="gradient__text__yellow">300</span> NymCoin™</p>
-                <p>Adrenalina: <span className="gradient__text__yellow">375</span> NymCoin™</p>
-                <p>Leki przeciwbólowe: <span className="gradient__text__yellow">375</span> NymCoin™</p>
-                <p>SCP-018: <span className="gradient__text__yellow">3750</span> NymCoin™</p>
-                <p>SCP-207: <span className="gradient__text__yellow">3375</span> NymCoin™</p>
-                <p>SCP-268: <span className="gradient__text__yellow">2500</span> NymCoin™</p>
+                <p>Karta Dozorcy: <span className="gradient__text__yellow">500</span> Coinów™</p>
+                <p>Karta Naukowca: <span className="gradient__text__yellow">700</span> Coinów™</p>
+                <p>Karta Strefy: <span className="gradient__text__yellow">1000</span> Coinów™</p>
+                <p>Karta Ochrony: <span className="gradient__text__yellow">2000</span> Coinów™</p>
+                <p>Karta Kapitana: <span className="gradient__text__yellow">3000</span> Coinów™</p>
+                <p>Karta Administratora: <span className="gradient__text__yellow">4000</span> Coinów™</p>
+                <p>Karta O5: <span className="gradient__text__yellow">5000</span> Coinów™</p>
+                <p>Apteczka: <span className="gradient__text__yellow">300</span> Coinów™</p>
+                <p>Adrenalina: <span className="gradient__text__yellow">375</span> Coinów™</p>
+                <p>Leki przeciwbólowe: <span className="gradient__text__yellow">375</span> Coinów™</p>
+                <p>SCP-018: <span className="gradient__text__yellow">3750</span> Coinów™</p>
+                <p>SCP-207: <span className="gradient__text__yellow">3375</span> Coinów™</p>
+                <p>SCP-268: <span className="gradient__text__yellow">2500</span> Coinów™</p>
               </div>
               <div>
-                <p>SCP-330: <span className="gradient__text__yellow">350</span> NymCoin™</p>
-                <p>SCP-500: <span className="gradient__text__yellow">2250</span> NymCoin™</p>
-                <p>SCP-1853: <span className="gradient__text__yellow">1250</span> NymCoin™</p>
-                <p>SCP-2176: <span className="gradient__text__yellow">1200</span> NymCoin™</p>
-                <p>Rewolwer: <span className="gradient__text__yellow">4000</span> NymCoin™</p>
-                <p>Strzelba: <span className="gradient__text__yellow">5000</span> NymCoin™</p>
-                <p>Disruptor: <span className="gradient__text__yellow">9999</span> NymCoin™</p>
-                <p>Granat zaczepny: <span className="gradient__text__yellow">3300</span> NymCoin™</p>
-                <p>Amunicja .12: <span className="gradient__text__yellow">300</span> NymCoin™</p>
-                <p>Amunicja 5.56 x 45mm: <span className="gradient__text__yellow">300</span> NymCoin™</p>
-                <p>Amunicja .44: <span className="gradient__text__yellow">300</span> NymCoin™</p>
-                <p>Amunicja 7,62 x 39mm: <span className="gradient__text__yellow">300</span> NymCoin™</p>
-                <p>Amunicja 9 x 19 mmm: <span className="gradient__text__yellow">300</span> NymCoin™</p>
+                <p>SCP-330: <span className="gradient__text__yellow">350</span> Coinów™</p>
+                <p>SCP-500: <span className="gradient__text__yellow">2250</span> Coinów™</p>
+                <p>SCP-1853: <span className="gradient__text__yellow">1250</span> Coinów™</p>
+                <p>SCP-2176: <span className="gradient__text__yellow">1200</span> Coinów™</p>
+                <p>Rewolwer: <span className="gradient__text__yellow">4000</span> Coinów™</p>
+                <p>Strzelba: <span className="gradient__text__yellow">5000</span> Coinów™</p>
+                <p>Disruptor: <span className="gradient__text__yellow">9999</span> Coinów™</p>
+                <p>Granat zaczepny: <span className="gradient__text__yellow">3300</span> Coinów™</p>
+                <p>Amunicja .12: <span className="gradient__text__yellow">300</span> Coinów™</p>
+                <p>Amunicja 5.56 x 45mm: <span className="gradient__text__yellow">300</span> Coinów™</p>
+                <p>Amunicja .44: <span className="gradient__text__yellow">300</span> Coinów™</p>
+                <p>Amunicja 7,62 x 39mm: <span className="gradient__text__yellow">300</span> Coinów™</p>
+                <p>Amunicja 9 x 19 mmm: <span className="gradient__text__yellow">300</span> Coinów™</p>
               </div>
               
               

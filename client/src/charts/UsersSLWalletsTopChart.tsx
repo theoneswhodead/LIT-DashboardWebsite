@@ -44,7 +44,7 @@ const UsersSLWalletsTopChart = ({ usersSlWalltesOverview}: any) => {
               <div key={index} className='flex justify-between border-b-[1px] border-white_opacity pb-[16px] px-6'>
                 <div className='text-[18px] font-roboto font-black'>{user.number + 1}.</div>
                 <div className='text-[18px] font-roboto font-black '>{user.userName}</div>
-                <div className='text-[18px] font-roboto font-black'>{user.wallet} N¢™</div>
+                <div className='text-[18px] font-roboto font-black'>{user.wallet} C¢™</div>
               </div>
             )
           )

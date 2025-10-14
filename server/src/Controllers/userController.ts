@@ -171,7 +171,7 @@ export const enable2fa = async (req: Request, res: Response) => {
 
         const generateBase32Secret = () => {
             const buffer = crypto.randomBytes(15);
-            const base32 = encode(buffer).replace(/=/g, "").substring(0, 24);
+const base32 = encode(new Uint8Array(buffer)).replace(/=/g, "").substring(0, 24);
             return base32;
           };
 
