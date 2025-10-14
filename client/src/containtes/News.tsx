@@ -2,49 +2,87 @@ import { useState } from "react"
 import { RiCloseLine } from 'react-icons/ri';
 
 
+// const texts = {
+//   "1": {
+//       "title": "Nowe Pluginy",
+//       "text": "Chcąc wzbogacić i urozmaicić rozgrywkę na serwerze, wprowadziliśmy nowe pluginy: SCP Swap i wiele wiecej.",
+//       "img": [
+//         '../../Public/grafiki/coin.png',
+//         '../../Public/grafiki/2.png',
+//         '../../Public/grafiki/3.png'
+
+//       ]
+//     },
+//     "2": {
+//       "title": "Comming Soon",
+//       "text": "Comming Soon",
+//       "img": [
+//         '../../Public/grafiki/4.png',
+//         '../../Public/grafiki/5.png',
+//         '../../Public/grafiki/6.png'
+
+//       ]
+//     },
+//     "3": {
+//       "title": "Comming Soon",
+//       "text": "Comming Soon",
+//       "img": [
+//         '../../Public/grafiki/1.png',
+//         '../../Public/grafiki/2.png',
+//         '../../Public/grafiki/3.png'
+
+//       ]
+//     },
+//     "4": {
+//       "title": "Śledź swoje postępy",
+//       "text": "Monitoruj swój rozwój zarówno na serwerze , jak i na Discordzie. Aby śledzić swoje osiągnięcia i statystyki, musisz zarejestrować konto na naszej stronie.",
+//       "img": [
+//         '../../Public/grafiki/4.png',
+//         '../../Public/grafiki/5.png',
+//         '../../Public/grafiki/6.png'
+
+//       ]
+//     }
+// }
+
 const texts = {
   "1": {
       "title": "Nowe Pluginy",
       "text": "Chcąc wzbogacić i urozmaicić rozgrywkę na serwerze, wprowadziliśmy nowe pluginy: SCP Swap i wiele wiecej.",
       "img": [
-        '../../Public/grafiki/coin.png',
-        '../../Public/grafiki/2.png',
-        '../../Public/grafiki/3.png'
-
+        // Zmieniono: '../../Public/grafiki/coin.png' -> '/grafiki/coin.png'
+        '/grafiki/coin.png', 
+        '/grafiki/2.png',
+        '/grafiki/3.png'
       ]
     },
     "2": {
       "title": "Comming Soon",
       "text": "Comming Soon",
       "img": [
-        '../../Public/grafiki/4.png',
-        '../../Public/grafiki/5.png',
-        '../../Public/grafiki/6.png'
-
+        '/grafiki/4.png',
+        '/grafiki/5.png',
+        '/grafiki/6.png'
       ]
     },
     "3": {
       "title": "Comming Soon",
       "text": "Comming Soon",
       "img": [
-        '../../Public/grafiki/1.png',
-        '../../Public/grafiki/2.png',
-        '../../Public/grafiki/3.png'
-
+        '/grafiki/1.png',
+        '/grafiki/2.png',
+        '/grafiki/3.png'
       ]
     },
     "4": {
       "title": "Śledź swoje postępy",
       "text": "Monitoruj swój rozwój zarówno na serwerze , jak i na Discordzie. Aby śledzić swoje osiągnięcia i statystyki, musisz zarejestrować konto na naszej stronie.",
       "img": [
-        '../../Public/grafiki/4.png',
-        '../../Public/grafiki/5.png',
-        '../../Public/grafiki/6.png'
-
+        '/grafiki/4.png',
+        '/grafiki/5.png',
+        '/grafiki/6.png'
       ]
     }
-    
-  
 }
 
 const ModalInfo = ({ setIsModalOpen, title, text, img }: any) => {

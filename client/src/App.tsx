@@ -5,10 +5,41 @@ import { useAuthContext } from './hooks/useAuthContext'
 import { useDiscordAuthContext } from './hooks/useDiscordAuthContext'
 import { useSteamAuthContext } from "./hooks/useSteamAuthContext";
 
-const personnelImage: any = ['../../../assets/class/ClassD.svg', '../../../assets/class/Scientist.svg', '../../../assets/class/Security.svg']
-const mtfImage: any = ['../../../assets/class/MTF_1.svg', '../../../assets/class/MTF_1.svg', '../../../assets/class/MTF_1.svg' , '../../../assets/class/MTF_1.svg']
-const chaosImage: any = ['../../../assets/class/Chaos_1.svg', '../../../assets/class/Chaos_1.svg','../../../assets/class/Chaos_1.svg','../../../assets/class/Chaos_1.svg',]
-const scpImage: any = ['../../../assets/class/SCP-173.svg', '../../../assets/class/SCP-106.svg', '../../../assets/class/SCP-096.svg', '../../../assets/class/SCP-049.svg', '../../../assets/class/SCP-049-2.svg', '../../../assets/class/SCP-3114.svg', '../../../assets/class/SCP-079.svg', '../../../assets/class/SCP-939.svg']
+// const personnelImage: any = ['../../../assets/class/ClassD.svg', '../../../assets/class/Scientist.svg', '../../../assets/class/Security.svg']
+// const mtfImage: any = ['../../../assets/class/MTF_1.svg', '../../../assets/class/MTF_1.svg', '../../../assets/class/MTF_1.svg' , '../../../assets/class/MTF_1.svg']
+// const chaosImage: any = ['../../../assets/class/Chaos_1.svg', '../../../assets/class/Chaos_1.svg','../../../assets/class/Chaos_1.svg','../../../assets/class/Chaos_1.svg',]
+// const scpImage: any = ['../../../assets/class/SCP-173.svg', '../../../assets/class/SCP-106.svg', '../../../assets/class/SCP-096.svg', '../../../assets/class/SCP-049.svg', '../../../assets/class/SCP-049-2.svg', '../../../assets/class/SCP-3114.svg', '../../../assets/class/SCP-079.svg', '../../../assets/class/SCP-939.svg']
+
+const personnelImage: any = [
+  '/assets/class/ClassD.svg', 
+  '/assets/class/Scientist.svg', 
+  '/assets/class/Security.svg'
+];
+
+const mtfImage: any = [
+  '/assets/class/MTF_1.svg', 
+  '/assets/class/MTF_1.svg', 
+  '/assets/class/MTF_1.svg', 
+  '/assets/class/MTF_1.svg'
+];
+
+const chaosImage: any = [
+  '/assets/class/Chaos_1.svg', 
+  '/assets/class/Chaos_1.svg',
+  '/assets/class/Chaos_1.svg',
+  '/assets/class/Chaos_1.svg',
+];
+
+const scpImage: any = [
+  '/assets/class/SCP-173.svg', 
+  '/assets/class/SCP-106.svg', 
+  '/assets/class/SCP-096.svg', 
+  '/assets/class/SCP-049.svg', 
+  '/assets/class/SCP-049-2.svg', 
+  '/assets/class/SCP-3114.svg', 
+  '/assets/class/SCP-079.svg', 
+  '/assets/class/SCP-939.svg'
+];
 
 const App = () => {
   const { user } = useAuthContext()
