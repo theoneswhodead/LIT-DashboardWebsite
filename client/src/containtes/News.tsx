@@ -50,37 +50,37 @@ const texts = {
       "title": "Nowe Pluginy",
       "text": "Chcąc wzbogacić i urozmaicić rozgrywkę na serwerze, wprowadziliśmy nowe pluginy: SCP Swap i wiele wiecej.",
       "img": [
-        // Zmieniono: '../../Public/grafiki/coin.png' -> '/grafiki/coin.png'
-        '/grafiki/coin.png', 
-        '/grafiki/2.png',
-        '/grafiki/3.png'
+        // Zmieniono: '/grafiki/coin.png' -> '/Public/grafiki/coin.png'
+        '/Public/grafiki/coin.png', 
+        '/Public/grafiki/2.png',
+        '/Public/grafiki/3.png'
       ]
     },
     "2": {
       "title": "Comming Soon",
       "text": "Comming Soon",
       "img": [
-        '/grafiki/4.png',
-        '/grafiki/5.png',
-        '/grafiki/6.png'
+        '/Public/grafiki/4.png',
+        '/Public/grafiki/5.png',
+        '/Public/grafiki/6.png'
       ]
     },
     "3": {
       "title": "Comming Soon",
       "text": "Comming Soon",
       "img": [
-        '/grafiki/1.png',
-        '/grafiki/2.png',
-        '/grafiki/3.png'
+        '/Public/grafiki/1.png',
+        '/Public/grafiki/2.png',
+        '/Public/grafiki/3.png'
       ]
     },
     "4": {
       "title": "Śledź swoje postępy",
       "text": "Monitoruj swój rozwój zarówno na serwerze , jak i na Discordzie. Aby śledzić swoje osiągnięcia i statystyki, musisz zarejestrować konto na naszej stronie.",
       "img": [
-        '/grafiki/4.png',
-        '/grafiki/5.png',
-        '/grafiki/6.png'
+        '/Public/grafiki/4.png',
+        '/Public/grafiki/5.png',
+        '/Public/grafiki/6.png'
       ]
     }
 }
